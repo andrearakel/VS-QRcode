@@ -130,13 +130,13 @@ export default function ProductLanding({ product }) {
 
 function CategoryDetail({ category, product, onClose }) {
   // Lock body scroll when open
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.add('modal-open');
     return () => document.body.classList.remove('modal-open');
   }, []);
 
   // Close on Escape key
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose();
     };
@@ -150,23 +150,23 @@ function CategoryDetail({ category, product, onClose }) {
   switch (category) {
     case 'saga':
       title = '📖 Product Story';
-      content = <SagaDetail product={product} />;
+      content = <SagaDetail saga={product.saga} />;
       break;
     case 'sotspor':
       title = '🌍 Footprint';
-      content = <SotsporDetail product={product} />;
+      content = <SotsporDetail sotspor={product.sotspor} />;
       break;
     case 'naeringarefni':
       title = '🥗 Nutrition';
-      content = <NaeringarefniDetail product={product} />;
+      content = <NaeringarefniDetail naeringarefni={product.naeringarefni} />;
       break;
     case 'hreinleiki':
       title = '🔬 Purity';
-      content = <HreinleikiDetail product={product} />;
+      content = <HreinleikiDetail hreinleiki={product.hreinleiki} />;
       break;
     case 'extra':
       title = 'ℹ️ More Info';
-      content = <ExtraDetail product={product} />;
+      content = <ExtraDetail extra={product.extra} />;
       break;
     default:
       title = 'Details';
