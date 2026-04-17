@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import CategoryCard from '../layout/CategoryCard';
 import Badge from '../common/Badge';
 import { useAnalytics } from '../../hooks/useAnalytics';

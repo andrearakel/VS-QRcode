@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 // ✅ CHANGE THIS to your deployed URL (Netlify/Vercel)
-const BASE_URL = process.env.BASE_URL || 'https://visible-sustainability.netlify.app';
+const BASE_URL = process.env.BASE_URL || 'https://vs-qrcode.netlify.app';
 
 const products = [
   { id: 'prod-001', name: 'Fresh Cod Whole' },
