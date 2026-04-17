@@ -1,1491 +1,720 @@
 {
-  "producer": {
-    "id": "producer-001",
-    "name": "Icelandic Premium Seafood",
-    "location": "Grundarfjörður, Iceland",
-    "description": "Sustainable wild-caught seafood from the cold, clean waters of Iceland. Operating from Grundarfjörður on the Snæfellsnes peninsula since 1987.",
-    "certifications": ["MSC", "IFS Food", "BRC Global Standards"],
-    "website": "https://example.is",
-    "logo": "/img/producer-logo.png"
-  },
-
   "products": [
     {
       "id": "prod-001",
-      "name": "Fresh Cod — Whole",
+      "name": "Cod Loin Fresh",
+      "format": "fresh",
+      "cut": "loin",
       "species": {
         "common_name": "Atlantic Cod",
-        "icelandic_name": "Þorskur",
-        "scientific_name": "Gadus morhua",
-        "stock_area": "Icelandic Cod — ICES Division 5a"
+        "scientific_name": "Gadus morhua"
       },
-      "cut": "whole_gutted",
-      "format": "fresh",
-      "weight_kg": 3.5,
-      "image": "/img/cod-whole-fresh.jpg",
-
       "topLayer": {
-        "headline": "Wild-caught Atlantic Cod from Icelandic waters",
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
         "sustainability_score": 92,
         "purity_score": 96,
-        "certifications": ["MSC"]
+        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
       },
-
       "saga": {
-        "catch_area": "Faxaflói Bay, West Iceland",
-        "catch_method": "Longline",
-        "vessel_name": "Þórdís GK-17",
-        "catch_date": "2025-03-20",
+        "catch_date": "2026-04-08",
+        "vessel_name": "Víkingur GK-31",
         "landing_port": "Grundarfjörður",
-        "landing_date": "2025-03-20",
-        "processing_facility": "Icelandic Premium Seafood, Grundarfjörður",
-        "processing_method": "Gutted, washed, packed on ice",
-        "processing_date": "2025-03-20",
+        "catch_area": "FAO 27 – Northeast Atlantic (Va)",
+        "catch_method": "Longline",
         "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "Faxaflói Bay",
-            "coordinates": { "lat": 64.85, "lng": -23.10 },
-            "date": "2025-03-20",
-            "detail": "Longline fishing vessel Þórdís GK-17"
-          },
-          {
-            "step": "Landed",
-            "location": "Grundarfjörður harbour",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-20",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Grundarfjörður processing plant",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-20",
-            "detail": "Gutted, washed, packed on ice"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-21",
-            "detail": "Refrigerated truck transport"
-          },
-          {
-            "step": "Exported",
-            "location": "Reykjavík port / Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-22",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-23",
-            "detail": "Available in store"
-          }
+          { "step": "Caught", "location": "Breiðafjörður Bay", "date": "2026-04-08", "detail": "Longline, selective catch" },
+          { "step": "Landed", "location": "Grundarfjörður Harbour", "date": "2026-04-08", "detail": "Weighed & graded within 4 hours" },
+          { "step": "Processed", "location": "Norðurland Seafood Plant", "date": "2026-04-09", "detail": "Hand-filleted, pin-boned, portioned" },
+          { "step": "Packed", "location": "Norðurland Seafood Plant", "date": "2026-04-09", "detail": "MAP packaging, 280g portions" },
+          { "step": "Shipped", "location": "Keflavík Airport", "date": "2026-04-10", "detail": "Air freight, 2–4 °C cold chain" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-04-11", "detail": "Arrived chilled, QC passed" }
         ],
-        "days_from_catch_to_shelf": 3
+        "processing_method": "Hand-filleted, pin-boned",
+        "processing_facility": "Norðurland Seafood, Grundarfjörður",
+        "days_from_catch_to_shelf": 4
       },
-
       "sotspor": {
         "carbon_kg_co2_per_kg": 2.1,
+        "transport_km": 2180,
         "fishing_fuel_liters_per_kg": 0.28,
-        "processing_energy_kwh_per_kg": 0.8,
-        "transport_km": 2450,
-        "transport_mode": "truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.3,
-        "packaging_material": "EPS box with ice",
+        "processing_energy_kwh_per_kg": 0.45,
+        "cold_chain_energy_kwh_per_kg": 0.32,
+        "water_liters_per_kg": 22,
+        "waste_percentage": 8,
         "packaging_recyclable": true,
-        "waste_percentage": 12,
-        "water_liters_per_kg": 42,
+        "transport_mode": "Air freight (chilled)",
+        "notes": "Icelandic grid is 100% renewable (hydro + geothermal). Longline fishing has low seabed impact and minimal bycatch.",
         "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
           "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Longline fishing has significantly lower fuel consumption than bottom trawling. Same-day processing reduces cold storage energy."
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
       },
-
       "naeringarefni": {
+        "health_highlights": [
+          "High in protein – 18g per 100g",
+          "Very low fat – under 1g per 100g",
+          "Rich in Vitamin B12 and Selenium",
+          "Natural source of Iodine"
+        ],
         "per_100g": {
           "energy_kcal": 82,
           "energy_kj": 343,
-          "protein_g": 18.1,
+          "protein_g": 17.8,
           "fat_total_g": 0.7,
           "fat_saturated_g": 0.1,
           "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 70,
+          "omega3_epa_mg": 64,
           "omega3_dha_mg": 120,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
+          "carbohydrates_g": 0.0,
           "salt_g": 0.15
         },
         "vitamins_minerals": {
           "vitamin_d_ug": 1.0,
           "vitamin_b12_ug": 1.2,
-          "vitamin_a_ug": 12,
-          "selenium_ug": 33,
+          "selenium_ug": 33.1,
           "iodine_ug": 110,
           "phosphorus_mg": 203,
           "potassium_mg": 413
-        },
-        "health_highlights": [
-          "High in protein",
-          "Low in fat",
-          "Source of Omega-3",
-          "Rich in Selenium",
-          "Rich in Iodine",
-          "Source of Vitamin B12"
-        ]
+        }
       },
-
       "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.05,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.003,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.008,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.01
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.4,
-          "dioxins_pg_g": 0.15,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-04-09",
         "antibiotics_used": false,
         "hormones_used": false,
         "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-15",
-        "testing_frequency": "Monthly batch testing",
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.05,
+          "mercury_eu_limit": 0.5,
+          "cadmium_mg_kg": 0.01,
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.02,
+          "lead_eu_limit": 0.3
+        },
+        "contaminants": {
+          "pcbs_pg_g": 0.8,
+          "dioxins_pg_g": 0.3,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
         "water_quality": {
-          "source": "North Atlantic, Faxaflói Bay",
-          "temperature_c": 4.2,
-          "classification": "Pristine — Class 1"
+          "source": "North Atlantic, Breiðafjörður Bay",
+          "temperature_c": 5.2,
+          "classification": "Class A – Pristine"
         }
       },
-
       "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 3 days of purchase.",
+        "storage_instructions": "Keep refrigerated 0–4 °C. Consume within 2 days of opening.",
         "shelf_life_days": 8,
-        "best_before": "2025-03-28",
-        "batch_id": "BATCH-COD-20250320-001",
-        "barcode": "5694120001001",
+        "best_before": "2026-04-16",
+        "batch_id": "NOR-COD-2026-0408-A",
+        "barcode": "5694120100012",
+        "allergens": ["Fish (Cod)"],
         "recipes": [
-          {
-            "name": "Pan-fried Cod with Butter and Capers",
-            "url": "/recipes/pan-fried-cod"
-          },
-          {
-            "name": "Oven-baked Cod with Herbs",
-            "url": "/recipes/baked-cod-herbs"
-          }
+          { "name": "Pan-Seared Cod with Lemon Butter" },
+          { "name": "Cod Loin with Roasted Vegetables" },
+          { "name": "Classic Icelandic Plokkfiskur" }
         ]
       }
     },
-
     {
       "id": "prod-002",
-      "name": "Fresh Cod — Loin",
+      "name": "Cod Loin Frozen",
+      "format": "frozen",
+      "cut": "loin",
       "species": {
         "common_name": "Atlantic Cod",
-        "icelandic_name": "Þorskur",
-        "scientific_name": "Gadus morhua",
-        "stock_area": "Icelandic Cod — ICES Division 5a"
+        "scientific_name": "Gadus morhua"
       },
-      "cut": "loin",
-      "format": "fresh",
-      "weight_kg": 0.35,
-      "image": "/img/cod-loin-fresh.jpg",
-
       "topLayer": {
-        "headline": "Premium hand-cut cod loin from Icelandic waters",
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
-        "sustainability_score": 88,
+        "sustainability_score": 93,
         "purity_score": 96,
-        "certifications": ["MSC"]
+        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
       },
-
       "saga": {
-        "catch_area": "Faxaflói Bay, West Iceland",
-        "catch_method": "Longline",
-        "vessel_name": "Þórdís GK-17",
-        "catch_date": "2025-03-20",
+        "catch_date": "2026-03-25",
+        "vessel_name": "Víkingur GK-31",
         "landing_port": "Grundarfjörður",
-        "landing_date": "2025-03-20",
-        "processing_facility": "Icelandic Premium Seafood, Grundarfjörður",
-        "processing_method": "Filleted, loin-cut, skin removed, pin-boned, vacuum packed",
-        "processing_date": "2025-03-21",
+        "catch_area": "FAO 27 – Northeast Atlantic (Va)",
+        "catch_method": "Longline",
         "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "Faxaflói Bay",
-            "coordinates": { "lat": 64.85, "lng": -23.10 },
-            "date": "2025-03-20",
-            "detail": "Longline fishing vessel Þórdís GK-17"
-          },
-          {
-            "step": "Landed",
-            "location": "Grundarfjörður harbour",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-20",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Grundarfjörður processing plant",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-21",
-            "detail": "Filleted, loin-cut, pin-boned, vacuum packed"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-21",
-            "detail": "Refrigerated truck transport"
-          },
-          {
-            "step": "Exported",
-            "location": "Reykjavík port / Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-22",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-23",
-            "detail": "Available in store"
-          }
+          { "step": "Caught", "location": "Breiðafjörður Bay", "date": "2026-03-25", "detail": "Longline, selective catch" },
+          { "step": "Landed", "location": "Grundarfjörður Harbour", "date": "2026-03-25", "detail": "Weighed & graded within 4 hours" },
+          { "step": "Processed", "location": "Norðurland Seafood Plant", "date": "2026-03-26", "detail": "Hand-filleted, pin-boned, portioned" },
+          { "step": "Frozen", "location": "Norðurland Seafood Plant", "date": "2026-03-26", "detail": "Blast frozen at –35 °C within 24h of catch" },
+          { "step": "Shipped", "location": "Reykjavík Port", "date": "2026-03-30", "detail": "Sea freight, –18 °C container" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-04-05", "detail": "Frozen chain verified, QC passed" }
         ],
-        "days_from_catch_to_shelf": 3
+        "processing_method": "Hand-filleted, pin-boned, blast frozen",
+        "processing_facility": "Norðurland Seafood, Grundarfjörður",
+        "days_from_catch_to_shelf": 14
       },
-
       "sotspor": {
-        "carbon_kg_co2_per_kg": 3.4,
-        "fishing_fuel_liters_per_kg": 0.28,
-        "processing_energy_kwh_per_kg": 2.1,
+        "carbon_kg_co2_per_kg": 1.4,
         "transport_km": 2450,
-        "transport_mode": "truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.5,
-        "packaging_material": "Vacuum pack, recycled cardboard box",
+        "fishing_fuel_liters_per_kg": 0.28,
+        "processing_energy_kwh_per_kg": 0.65,
+        "cold_chain_energy_kwh_per_kg": 0.55,
+        "water_liters_per_kg": 22,
+        "waste_percentage": 7,
         "packaging_recyclable": true,
-        "waste_percentage": 55,
-        "water_liters_per_kg": 85,
+        "transport_mode": "Sea freight (frozen)",
+        "notes": "Sea freight produces ~90% less CO₂ than air freight per kg. Blast freezing locks in freshness within 24h of catch. Icelandic grid is 100% renewable.",
         "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
           "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Loin cut produces ~55% waste (head, bones, belly, skin). Higher carbon per kg of product due to yield loss. Waste used for fishmeal and oil production."
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
       },
-
       "naeringarefni": {
+        "health_highlights": [
+          "High in protein – 18g per 100g",
+          "Very low fat – under 1g per 100g",
+          "Rich in Vitamin B12 and Selenium",
+          "Natural source of Iodine"
+        ],
         "per_100g": {
           "energy_kcal": 82,
           "energy_kj": 343,
-          "protein_g": 18.1,
+          "protein_g": 17.8,
           "fat_total_g": 0.7,
           "fat_saturated_g": 0.1,
           "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 70,
+          "omega3_epa_mg": 64,
           "omega3_dha_mg": 120,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
+          "carbohydrates_g": 0.0,
           "salt_g": 0.15
         },
         "vitamins_minerals": {
           "vitamin_d_ug": 1.0,
           "vitamin_b12_ug": 1.2,
-          "vitamin_a_ug": 12,
-          "selenium_ug": 33,
+          "selenium_ug": 33.1,
           "iodine_ug": 110,
           "phosphorus_mg": 203,
           "potassium_mg": 413
-        },
-        "health_highlights": [
-          "High in protein",
-          "Low in fat",
-          "Source of Omega-3",
-          "Rich in Selenium",
-          "Rich in Iodine",
-          "Source of Vitamin B12"
-        ]
+        }
       },
-
       "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.05,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.003,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.008,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.01
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.4,
-          "dioxins_pg_g": 0.15,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-03-27",
         "antibiotics_used": false,
         "hormones_used": false,
         "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-15",
-        "testing_frequency": "Monthly batch testing",
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.05,
+          "mercury_eu_limit": 0.5,
+          "cadmium_mg_kg": 0.01,
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.02,
+          "lead_eu_limit": 0.3
+        },
+        "contaminants": {
+          "pcbs_pg_g": 0.8,
+          "dioxins_pg_g": 0.3,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
         "water_quality": {
-          "source": "North Atlantic, Faxaflói Bay",
-          "temperature_c": 4.2,
-          "classification": "Pristine — Class 1"
+          "source": "North Atlantic, Breiðafjörður Bay",
+          "temperature_c": 4.8,
+          "classification": "Class A – Pristine"
         }
       },
-
       "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 2 days of purchase.",
-        "shelf_life_days": 6,
-        "best_before": "2025-03-26",
-        "batch_id": "BATCH-COD-L-20250321-001",
-        "barcode": "5694120001002",
+        "storage_instructions": "Keep frozen at –18 °C. Once thawed, keep refrigerated and consume within 24 hours. Do not refreeze.",
+        "shelf_life_days": 365,
+        "best_before": "2027-03-25",
+        "batch_id": "NOR-COD-2026-0325-F",
+        "barcode": "5694120100029",
+        "allergens": ["Fish (Cod)"],
         "recipes": [
-          {
-            "name": "Cod Loin with Lemon Butter",
-            "url": "/recipes/cod-loin-lemon"
-          },
-          {
-            "name": "Slow-roasted Cod Loin",
-            "url": "/recipes/slow-roasted-cod"
-          }
+          { "name": "Pan-Seared Cod with Lemon Butter" },
+          { "name": "Baked Cod with Herb Crust" },
+          { "name": "Classic Icelandic Plokkfiskur" }
         ]
       }
     },
-
     {
       "id": "prod-003",
-      "name": "Frozen Cod — Loin",
-      "species": {
-        "common_name": "Atlantic Cod",
-        "icelandic_name": "Þorskur",
-        "scientific_name": "Gadus morhua",
-        "stock_area": "Icelandic Cod — ICES Division 5a"
-      },
+      "name": "Haddock Loin Fresh",
+      "format": "fresh",
       "cut": "loin",
-      "format": "frozen",
-      "weight_kg": 0.40,
-      "image": "/img/cod-loin-frozen.jpg",
-
+      "species": {
+        "common_name": "Haddock",
+        "scientific_name": "Melanogrammus aeglefinus"
+      },
       "topLayer": {
-        "headline": "Flash-frozen cod loin — locked in freshness",
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
-        "sustainability_score": 87,
-        "purity_score": 96,
-        "certifications": ["MSC"]
+        "sustainability_score": 90,
+        "purity_score": 95,
+        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
       },
-
       "saga": {
-        "catch_area": "Faxaflói Bay, West Iceland",
-        "catch_method": "Longline",
-        "vessel_name": "Þórdís GK-17",
-        "catch_date": "2025-03-10",
+        "catch_date": "2026-04-09",
+        "vessel_name": "Sæbjörg GK-17",
         "landing_port": "Grundarfjörður",
-        "landing_date": "2025-03-10",
-        "processing_facility": "Icelandic Premium Seafood, Grundarfjörður",
-        "processing_method": "Filleted, loin-cut, pin-boned, IQF frozen, glazed, vacuum packed",
-        "processing_date": "2025-03-11",
+        "catch_area": "FAO 27 – Northeast Atlantic (Va)",
+        "catch_method": "Longline",
         "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "Faxaflói Bay",
-            "coordinates": { "lat": 64.85, "lng": -23.10 },
-            "date": "2025-03-10",
-            "detail": "Longline fishing vessel Þórdís GK-17"
-          },
-          {
-            "step": "Landed",
-            "location": "Grundarfjörður harbour",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-10",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed & Frozen",
-            "location": "Grundarfjörður processing plant",
-            "coordinates": { "lat": 64.92, "lng": -23.25 },
-            "date": "2025-03-11",
-            "detail": "Filleted, loin-cut, IQF frozen at -35°C, glazed, vacuum packed"
-          },
-          {
-            "step": "Cold Storage",
-            "location": "Reykjavík frozen warehouse",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-13",
-            "detail": "Stored at -22°C"
-          },
-          {
-            "step": "Exported",
-            "location": "Reykjavík port",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-18",
-            "detail": "Refrigerated container ship to UK"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-25",
-            "detail": "Available in frozen aisle"
-          }
+          { "step": "Caught", "location": "Faxaflói Bay", "date": "2026-04-09", "detail": "Longline, selective catch" },
+          { "step": "Landed", "location": "Grundarfjörður Harbour", "date": "2026-04-09", "detail": "Weighed & graded within 5 hours" },
+          { "step": "Processed", "location": "Norðurland Seafood Plant", "date": "2026-04-10", "detail": "Hand-filleted, pin-boned, portioned" },
+          { "step": "Packed", "location": "Norðurland Seafood Plant", "date": "2026-04-10", "detail": "MAP packaging, 280g portions" },
+          { "step": "Shipped", "location": "Keflavík Airport", "date": "2026-04-11", "detail": "Air freight, 2–4 °C cold chain" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-04-12", "detail": "Arrived chilled, QC passed" }
         ],
-        "days_from_catch_to_shelf": 15
+        "processing_method": "Hand-filleted, pin-boned",
+        "processing_facility": "Norðurland Seafood, Grundarfjörður",
+        "days_from_catch_to_shelf": 4
       },
-
       "sotspor": {
-        "carbon_kg_co2_per_kg": 3.0,
-        "fishing_fuel_liters_per_kg": 0.28,
-        "processing_energy_kwh_per_kg": 3.8,
-        "transport_km": 2450,
-        "transport_mode": "truck + container ship",
-        "cold_chain_energy_kwh_per_kg": 2.1,
-        "packaging_material": "Vacuum pack, recycled cardboard box",
+        "carbon_kg_co2_per_kg": 2.3,
+        "transport_km": 2180,
+        "fishing_fuel_liters_per_kg": 0.30,
+        "processing_energy_kwh_per_kg": 0.45,
+        "cold_chain_energy_kwh_per_kg": 0.32,
+        "water_liters_per_kg": 24,
+        "waste_percentage": 9,
         "packaging_recyclable": true,
-        "waste_percentage": 55,
-        "water_liters_per_kg": 90,
+        "transport_mode": "Air freight (chilled)",
+        "notes": "Icelandic grid is 100% renewable (hydro + geothermal). Longline fishing has low seabed impact and minimal bycatch.",
         "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
           "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Frozen product has higher processing energy (blast freezing) but lower transport carbon — shipped by sea instead of air. Longer shelf life also reduces food waste at retail."
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
       },
-
       "naeringarefni": {
+        "health_highlights": [
+          "High in protein – 19g per 100g",
+          "Very low fat – under 1g per 100g",
+          "Excellent source of Vitamin B12",
+          "Rich in Selenium and Phosphorus"
+        ],
         "per_100g": {
-          "energy_kcal": 82,
-          "energy_kj": 343,
-          "protein_g": 18.1,
-          "fat_total_g": 0.7,
-          "fat_saturated_g": 0.1,
+          "energy_kcal": 90,
+          "energy_kj": 377,
+          "protein_g": 19.0,
+          "fat_total_g": 0.9,
+          "fat_saturated_g": 0.2,
           "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 70,
-          "omega3_dha_mg": 120,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.15
+          "omega3_epa_mg": 47,
+          "omega3_dha_mg": 104,
+          "carbohydrates_g": 0.0,
+          "salt_g": 0.20
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 1.0,
-          "vitamin_b12_ug": 1.2,
-          "vitamin_a_ug": 12,
-          "selenium_ug": 33,
-          "iodine_ug": 110,
-          "phosphorus_mg": 203,
-          "potassium_mg": 413
-        },
-        "health_highlights": [
-          "High in protein",
-          "Low in fat",
-          "Source of Omega-3",
-          "Rich in Selenium",
-          "Rich in Iodine",
-          "Source of Vitamin B12"
-        ]
+          "vitamin_d_ug": 0.5,
+          "vitamin_b12_ug": 1.8,
+          "selenium_ug": 30.7,
+          "iodine_ug": 250,
+          "phosphorus_mg": 227,
+          "potassium_mg": 351
+        }
       },
-
       "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.05,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.003,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.008,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.01
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.4,
-          "dioxins_pg_g": 0.15,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-04-10",
         "antibiotics_used": false,
         "hormones_used": false,
         "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-08",
-        "testing_frequency": "Monthly batch testing",
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.04,
+          "mercury_eu_limit": 0.5,
+          "cadmium_mg_kg": 0.008,
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.015,
+          "lead_eu_limit": 0.3
+        },
+        "contaminants": {
+          "pcbs_pg_g": 0.6,
+          "dioxins_pg_g": 0.25,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
         "water_quality": {
           "source": "North Atlantic, Faxaflói Bay",
-          "temperature_c": 4.2,
-          "classification": "Pristine — Class 1"
+          "temperature_c": 5.5,
+          "classification": "Class A – Pristine"
         }
       },
-
       "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep frozen at -18°C or below. Once thawed, consume within 24 hours. Do not refreeze.",
-        "shelf_life_days": 365,
-        "best_before": "2026-03-10",
-        "batch_id": "BATCH-COD-LF-20250311-001",
-        "barcode": "5694120001003",
+        "storage_instructions": "Keep refrigerated 0–4 °C. Consume within 2 days of opening.",
+        "shelf_life_days": 7,
+        "best_before": "2026-04-16",
+        "batch_id": "NOR-HAD-2026-0409-A",
+        "barcode": "5694120100036",
+        "allergens": ["Fish (Haddock)"],
         "recipes": [
-          {
-            "name": "Cod Loin with Lemon Butter",
-            "url": "/recipes/cod-loin-lemon"
-          },
-          {
-            "name": "Beer-battered Cod",
-            "url": "/recipes/beer-battered-cod"
-          }
+          { "name": "Smoked Haddock Chowder" },
+          { "name": "Baked Haddock with Parsley Sauce" },
+          { "name": "Haddock Fish Cakes" }
         ]
       }
     },
-
     {
       "id": "prod-004",
-      "name": "Fresh Haddock — Whole",
-      "species": {
-        "common_name": "Haddock",
-        "icelandic_name": "Ýsa",
-        "scientific_name": "Melanogrammus aeglefinus",
-        "stock_area": "Icelandic Haddock — ICES Division 5a"
-      },
-      "cut": "whole_gutted",
-      "format": "fresh",
-      "weight_kg": 2.2,
-      "image": "/img/haddock-whole-fresh.jpg",
-
-      "topLayer": {
-        "headline": "Wild-caught Icelandic haddock — a classic whitefish",
-        "origin_short": "Vestmannaeyjar, Iceland",
-        "catch_method": "Danish seine",
-        "sustainability_score": 89,
-        "purity_score": 95,
-        "certifications": ["MSC"]
-      },
-
-      "saga": {
-        "catch_area": "South Iceland shelf, off Vestmannaeyjar",
-        "catch_method": "Danish seine",
-        "vessel_name": "Vestmannaey VE-1",
-        "catch_date": "2025-03-19",
-        "landing_port": "Vestmannaeyjar",
-        "landing_date": "2025-03-19",
-        "processing_facility": "Icelandic Premium Seafood, Vestmannaeyjar branch",
-        "processing_method": "Gutted, washed, packed on ice",
-        "processing_date": "2025-03-19",
-        "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "South Iceland shelf",
-            "coordinates": { "lat": 63.30, "lng": -20.20 },
-            "date": "2025-03-19",
-            "detail": "Danish seine vessel Vestmannaey VE-1"
-          },
-          {
-            "step": "Landed",
-            "location": "Vestmannaeyjar harbour",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-19",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Vestmannaeyjar processing plant",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-19",
-            "detail": "Gutted, washed, packed on ice"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-20",
-            "detail": "Ferry + refrigerated truck"
-          },
-          {
-            "step": "Exported",
-            "location": "Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-21",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-22",
-            "detail": "Available in store"
-          }
-        ],
-        "days_from_catch_to_shelf": 3
-      },
-
-      "sotspor": {
-        "carbon_kg_co2_per_kg": 2.4,
-        "fishing_fuel_liters_per_kg": 0.35,
-        "processing_energy_kwh_per_kg": 0.8,
-        "transport_km": 2600,
-        "transport_mode": "ferry + truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.3,
-        "packaging_material": "EPS box with ice",
-        "packaging_recyclable": true,
-        "waste_percentage": 14,
-        "water_liters_per_kg": 45,
-        "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
-          "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Danish seine has moderate fuel use — lower than trawling, higher than longline. Vestmannaeyjar location adds ferry transport step."
-      },
-
-      "naeringarefni": {
-        "per_100g": {
-          "energy_kcal": 76,
-          "energy_kj": 318,
-          "protein_g": 17.5,
-          "fat_total_g": 0.6,
-          "fat_saturated_g": 0.1,
-          "fat_polyunsaturated_g": 0.2,
-          "omega3_epa_mg": 60,
-          "omega3_dha_mg": 100,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.18
-        },
-        "vitamins_minerals": {
-          "vitamin_d_ug": 0.5,
-          "vitamin_b12_ug": 1.8,
-          "vitamin_a_ug": 10,
-          "selenium_ug": 30,
-          "iodine_ug": 250,
-          "phosphorus_mg": 188,
-          "potassium_mg": 350
-        },
-        "health_highlights": [
-          "High in protein",
-          "Very low in fat",
-          "Source of Omega-3",
-          "Rich in Iodine",
-          "Rich in Selenium",
-          "Source of Vitamin B12"
-        ]
-      },
-
-      "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.03,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.002,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.006,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.008
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.3,
-          "dioxins_pg_g": 0.12,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
-        "antibiotics_used": false,
-        "hormones_used": false,
-        "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-12",
-        "testing_frequency": "Monthly batch testing",
-        "water_quality": {
-          "source": "North Atlantic, South Iceland shelf",
-          "temperature_c": 5.8,
-          "classification": "Pristine — Class 1"
-        }
-      },
-
-      "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 3 days of purchase.",
-        "shelf_life_days": 7,
-        "best_before": "2025-03-26",
-        "batch_id": "BATCH-HAD-20250319-001",
-        "barcode": "5694120001004",
-        "recipes": [
-          {
-            "name": "Traditional Smoked Haddock",
-            "url": "/recipes/smoked-haddock"
-          },
-          {
-            "name": "Haddock Fish and Chips",
-            "url": "/recipes/haddock-fish-chips"
-          }
-        ]
-      }
-    },
-
-    {
-      "id": "prod-005",
-      "name": "Fresh Haddock — Loin",
-      "species": {
-        "common_name": "Haddock",
-        "icelandic_name": "Ýsa",
-        "scientific_name": "Melanogrammus aeglefinus",
-        "stock_area": "Icelandic Haddock — ICES Division 5a"
-      },
-      "cut": "loin",
-      "format": "fresh",
-      "weight_kg": 0.30,
-      "image": "/img/haddock-loin-fresh.jpg",
-
-      "topLayer": {
-        "headline": "Hand-cut haddock loin — delicate and lean",
-        "origin_short": "Vestmannaeyjar, Iceland",
-        "catch_method": "Danish seine",
-        "sustainability_score": 85,
-        "purity_score": 95,
-        "certifications": ["MSC"]
-      },
-
-      "saga": {
-        "catch_area": "South Iceland shelf, off Vestmannaeyjar",
-        "catch_method": "Danish seine",
-        "vessel_name": "Vestmannaey VE-1",
-        "catch_date": "2025-03-19",
-        "landing_port": "Vestmannaeyjar",
-        "landing_date": "2025-03-19",
-        "processing_facility": "Icelandic Premium Seafood, Vestmannaeyjar branch",
-        "processing_method": "Filleted, loin-cut, skin removed, pin-boned, vacuum packed",
-        "processing_date": "2025-03-20",
-        "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "South Iceland shelf",
-            "coordinates": { "lat": 63.30, "lng": -20.20 },
-            "date": "2025-03-19",
-            "detail": "Danish seine vessel Vestmannaey VE-1"
-          },
-          {
-            "step": "Landed",
-            "location": "Vestmannaeyjar harbour",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-19",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Vestmannaeyjar processing plant",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-20",
-            "detail": "Filleted, loin-cut, pin-boned, vacuum packed"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-20",
-            "detail": "Ferry + refrigerated truck"
-          },
-          {
-            "step": "Exported",
-            "location": "Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-21",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-22",
-            "detail": "Available in store"
-          }
-        ],
-        "days_from_catch_to_shelf": 3
-      },
-
-      "sotspor": {
-        "carbon_kg_co2_per_kg": 3.8,
-        "fishing_fuel_liters_per_kg": 0.35,
-        "processing_energy_kwh_per_kg": 2.2,
-        "transport_km": 2600,
-        "transport_mode": "ferry + truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.5,
-        "packaging_material": "Vacuum pack, recycled cardboard box",
-        "packaging_recyclable": true,
-        "waste_percentage": 58,
-        "water_liters_per_kg": 92,
-        "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
-          "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Haddock has slightly higher waste percentage than cod when making loins due to body shape. Waste is processed into fishmeal."
-      },
-
-      "naeringarefni": {
-        "per_100g": {
-          "energy_kcal": 76,
-          "energy_kj": 318,
-          "protein_g": 17.5,
-          "fat_total_g": 0.6,
-          "fat_saturated_g": 0.1,
-          "fat_polyunsaturated_g": 0.2,
-          "omega3_epa_mg": 60,
-          "omega3_dha_mg": 100,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.18
-        },
-        "vitamins_minerals": {
-          "vitamin_d_ug": 0.5,
-          "vitamin_b12_ug": 1.8,
-          "vitamin_a_ug": 10,
-          "selenium_ug": 30,
-          "iodine_ug": 250,
-          "phosphorus_mg": 188,
-          "potassium_mg": 350
-        },
-        "health_highlights": [
-          "High in protein",
-          "Very low in fat",
-          "Source of Omega-3",
-          "Rich in Iodine",
-          "Rich in Selenium",
-          "Source of Vitamin B12"
-        ]
-      },
-
-      "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.03,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.002,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.006,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.008
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.3,
-          "dioxins_pg_g": 0.12,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
-        "antibiotics_used": false,
-        "hormones_used": false,
-        "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-12",
-        "testing_frequency": "Monthly batch testing",
-        "water_quality": {
-          "source": "North Atlantic, South Iceland shelf",
-          "temperature_c": 5.8,
-          "classification": "Pristine — Class 1"
-        }
-      },
-
-      "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 2 days of purchase.",
-        "shelf_life_days": 5,
-        "best_before": "2025-03-25",
-        "batch_id": "BATCH-HAD-L-20250320-001",
-        "barcode": "5694120001005",
-        "recipes": [
-          {
-            "name": "Haddock Loin with Parsley Sauce",
-            "url": "/recipes/haddock-parsley"
-          },
-          {
-            "name": "Grilled Haddock with Lemon",
-            "url": "/recipes/grilled-haddock"
-          }
-        ]
-      }
-    },
-
-    {
-      "id": "prod-006",
-      "name": "Frozen Haddock — Loin",
-      "species": {
-        "common_name": "Haddock",
-        "icelandic_name": "Ýsa",
-        "scientific_name": "Melanogrammus aeglefinus",
-        "stock_area": "Icelandic Haddock — ICES Division 5a"
-      },
-      "cut": "loin",
+      "name": "Haddock Loin Frozen",
       "format": "frozen",
-      "weight_kg": 0.35,
-      "image": "/img/haddock-loin-frozen.jpg",
-
-      "topLayer": {
-        "headline": "Flash-frozen haddock loin — premium quality preserved",
-        "origin_short": "Vestmannaeyjar, Iceland",
-        "catch_method": "Danish seine",
-        "sustainability_score": 84,
-        "purity_score": 95,
-        "certifications": ["MSC"]
+      "cut": "loin",
+      "species": {
+        "common_name": "Haddock",
+        "scientific_name": "Melanogrammus aeglefinus"
       },
-
+      "topLayer": {
+        "origin_short": "Grundarfjörður, Iceland",
+        "catch_method": "Longline",
+        "sustainability_score": 91,
+        "purity_score": 95,
+        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
+      },
       "saga": {
-        "catch_area": "South Iceland shelf, off Vestmannaeyjar",
-        "catch_method": "Danish seine",
-        "vessel_name": "Vestmannaey VE-1",
-        "catch_date": "2025-03-08",
-        "landing_port": "Vestmannaeyjar",
-        "landing_date": "2025-03-08",
-        "processing_facility": "Icelandic Premium Seafood, Vestmannaeyjar branch",
-        "processing_method": "Filleted, loin-cut, pin-boned, IQF frozen, glazed, vacuum packed",
-        "processing_date": "2025-03-09",
+        "catch_date": "2026-03-20",
+        "vessel_name": "Sæbjörg GK-17",
+        "landing_port": "Grundarfjörður",
+        "catch_area": "FAO 27 – Northeast Atlantic (Va)",
+        "catch_method": "Longline",
         "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "South Iceland shelf",
-            "coordinates": { "lat": 63.30, "lng": -20.20 },
-            "date": "2025-03-08",
-            "detail": "Danish seine vessel Vestmannaey VE-1"
-          },
-          {
-            "step": "Landed",
-            "location": "Vestmannaeyjar harbour",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-08",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed & Frozen",
-            "location": "Vestmannaeyjar processing plant",
-            "coordinates": { "lat": 63.44, "lng": -20.27 },
-            "date": "2025-03-09",
-            "detail": "Filleted, loin-cut, IQF frozen at -35°C, glazed, vacuum packed"
-          },
-          {
-            "step": "Cold Storage",
-            "location": "Reykjavík frozen warehouse",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-11",
-            "detail": "Ferry + truck, stored at -22°C"
-          },
-          {
-            "step": "Exported",
-            "location": "Reykjavík port",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-16",
-            "detail": "Refrigerated container ship to UK"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-23",
-            "detail": "Available in frozen aisle"
-          }
+          { "step": "Caught", "location": "Faxaflói Bay", "date": "2026-03-20", "detail": "Longline, selective catch" },
+          { "step": "Landed", "location": "Grundarfjörður Harbour", "date": "2026-03-20", "detail": "Weighed & graded within 5 hours" },
+          { "step": "Processed", "location": "Norðurland Seafood Plant", "date": "2026-03-21", "detail": "Hand-filleted, pin-boned, portioned" },
+          { "step": "Frozen", "location": "Norðurland Seafood Plant", "date": "2026-03-21", "detail": "Blast frozen at –35 °C within 24h of catch" },
+          { "step": "Shipped", "location": "Reykjavík Port", "date": "2026-03-25", "detail": "Sea freight, –18 °C container" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-04-01", "detail": "Frozen chain verified, QC passed" }
         ],
+        "processing_method": "Hand-filleted, pin-boned, blast frozen",
+        "processing_facility": "Norðurland Seafood, Grundarfjörður",
         "days_from_catch_to_shelf": 15
       },
-
       "sotspor": {
-        "carbon_kg_co2_per_kg": 3.3,
-        "fishing_fuel_liters_per_kg": 0.35,
-        "processing_energy_kwh_per_kg": 4.0,
-        "transport_km": 2600,
-        "transport_mode": "ferry + truck + container ship",
-        "cold_chain_energy_kwh_per_kg": 2.2,
-        "packaging_material": "Vacuum pack, recycled cardboard box",
+        "carbon_kg_co2_per_kg": 1.5,
+        "transport_km": 2450,
+        "fishing_fuel_liters_per_kg": 0.30,
+        "processing_energy_kwh_per_kg": 0.65,
+        "cold_chain_energy_kwh_per_kg": 0.55,
+        "water_liters_per_kg": 24,
+        "waste_percentage": 8,
         "packaging_recyclable": true,
-        "waste_percentage": 58,
-        "water_liters_per_kg": 95,
+        "transport_mode": "Sea freight (frozen)",
+        "notes": "Sea freight produces ~90% less CO₂ than air freight per kg. Blast freezing locks in freshness within 24h of catch. Icelandic grid is 100% renewable.",
         "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
           "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Frozen format uses sea freight instead of air — lower transport carbon but higher cold chain energy. Extended shelf life significantly reduces food waste."
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
       },
-
       "naeringarefni": {
+        "health_highlights": [
+          "High in protein – 19g per 100g",
+          "Very low fat – under 1g per 100g",
+          "Excellent source of Vitamin B12",
+          "Rich in Selenium and Phosphorus"
+        ],
         "per_100g": {
-          "energy_kcal": 76,
-          "energy_kj": 318,
-          "protein_g": 17.5,
-          "fat_total_g": 0.6,
-          "fat_saturated_g": 0.1,
-          "fat_polyunsaturated_g": 0.2,
-          "omega3_epa_mg": 60,
-          "omega3_dha_mg": 100,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.18
+          "energy_kcal": 90,
+          "energy_kj": 377,
+          "protein_g": 19.0,
+          "fat_total_g": 0.9,
+          "fat_saturated_g": 0.2,
+          "fat_polyunsaturated_g": 0.3,
+          "omega3_epa_mg": 47,
+          "omega3_dha_mg": 104,
+          "carbohydrates_g": 0.0,
+          "salt_g": 0.20
         },
         "vitamins_minerals": {
           "vitamin_d_ug": 0.5,
           "vitamin_b12_ug": 1.8,
-          "vitamin_a_ug": 10,
-          "selenium_ug": 30,
+          "selenium_ug": 30.7,
           "iodine_ug": 250,
-          "phosphorus_mg": 188,
-          "potassium_mg": 350
-        },
-        "health_highlights": [
-          "High in protein",
-          "Very low in fat",
-          "Source of Omega-3",
-          "Rich in Iodine",
-          "Rich in Selenium",
-          "Source of Vitamin B12"
-        ]
+          "phosphorus_mg": 227,
+          "potassium_mg": 351
+        }
       },
-
       "hreinleiki": {
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-03-22",
+        "antibiotics_used": false,
+        "hormones_used": false,
+        "pesticides_detected": false,
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.04,
+          "mercury_eu_limit": 0.5,
+          "cadmium_mg_kg": 0.008,
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.015,
+          "lead_eu_limit": 0.3
+        },
+        "contaminants": {
+          "pcbs_pg_g": 0.6,
+          "dioxins_pg_g": 0.25,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
+        "water_quality": {
+          "source": "North Atlantic, Faxaflói Bay",
+          "temperature_c": 4.5,
+          "classification": "Class A – Pristine"
+        }
+      },
+      "extra": {
+        "storage_instructions": "Keep frozen at –18 °C. Once thawed, keep refrigerated and consume within 24 hours. Do not refreeze.",
+        "shelf_life_days": 365,
+        "best_before": "2027-03-20",
+        "batch_id": "NOR-HAD-2026-0320-F",
+        "barcode": "5694120100043",
+        "allergens": ["Fish (Haddock)"],
+        "recipes": [
+          { "name": "Smoked Haddock Chowder" },
+          { "name": "Crispy Battered Haddock" },
+          { "name": "Haddock Fish Cakes" }
+        ]
+      }
+    },
+    {
+      "id": "prod-005",
+      "name": "Salmon Fillet Fresh",
+      "format": "fresh",
+      "cut": "loin",
+      "species": {
+        "common_name": "Atlantic Salmon",
+        "scientific_name": "Salmo salar"
+      },
+      "topLayer": {
+        "origin_short": "Bíldudalur, Iceland",
+        "catch_method": "Farmed – Open Net Pen",
+        "sustainability_score": 85,
+        "purity_score": 93,
+        "certifications": ["ASC Certified", "Iceland Responsible Aquaculture"]
+      },
+      "saga": {
+        "catch_date": "2026-04-10",
+        "vessel_name": "Vestfjarða Lax – Pen 7",
+        "landing_port": "Bíldudalur",
+        "catch_area": "Arnarfjörður, Westfjords",
+        "catch_method": "Farmed – Open Net Pen",
+        "supply_chain": [
+          { "step": "Harvested", "location": "Arnarfjörður Farm Site", "date": "2026-04-10", "detail": "Humane harvest, 12-month grow cycle" },
+          { "step": "Processed", "location": "Vestfjarða Lax Plant, Bíldudalur", "date": "2026-04-10", "detail": "Filleted, trimmed, portioned same day" },
+          { "step": "Packed", "location": "Vestfjarða Lax Plant, Bíldudalur", "date": "2026-04-10", "detail": "Vacuum-sealed, 260g portions" },
+          { "step": "Shipped", "location": "Keflavík Airport", "date": "2026-04-11", "detail": "Air freight, 2–4 °C cold chain" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-04-12", "detail": "Arrived chilled, QC passed" }
+        ],
+        "processing_method": "Machine-filleted, trimmed, vacuum-sealed",
+        "processing_facility": "Vestfjarða Lax, Bíldudalur",
+        "days_from_catch_to_shelf": 3
+      },
+      "sotspor": {
+        "carbon_kg_co2_per_kg": 3.8,
+        "transport_km": 2300,
+        "fishing_fuel_liters_per_kg": 0.0,
+        "processing_energy_kwh_per_kg": 0.50,
+        "cold_chain_energy_kwh_per_kg": 0.35,
+        "water_liters_per_kg": 2800,
+        "waste_percentage": 12,
+        "packaging_recyclable": true,
+        "transport_mode": "Air freight (chilled)",
+        "notes": "Farmed salmon has a higher footprint than wild whitefish due to feed production. However, Icelandic farms use 100% renewable energy and cold, clean fjord water reduces disease and antibiotic need.",
+        "comparison": {
+          "beef_carbon": 27.0,
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
+      },
+      "naeringarefni": {
+        "health_highlights": [
+          "Rich in Omega-3 (EPA + DHA)",
+          "High in protein – 20g per 100g",
+          "Excellent source of Vitamin D",
+          "Good source of Vitamin B12 and Selenium"
+        ],
+        "per_100g": {
+          "energy_kcal": 208,
+          "energy_kj": 870,
+          "protein_g": 20.4,
+          "fat_total_g": 13.4,
+          "fat_saturated_g": 3.0,
+          "fat_polyunsaturated_g": 3.9,
+          "omega3_epa_mg": 690,
+          "omega3_dha_mg": 1100,
+          "carbohydrates_g": 0.0,
+          "salt_g": 0.10
+        },
+        "vitamins_minerals": {
+          "vitamin_d_ug": 11.0,
+          "vitamin_b12_ug": 3.2,
+          "selenium_ug": 36.5,
+          "iodine_ug": 14,
+          "phosphorus_mg": 240,
+          "potassium_mg": 363
+        }
+      },
+      "hreinleiki": {
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-04-11",
+        "antibiotics_used": false,
+        "hormones_used": false,
+        "pesticides_detected": false,
+        "microplastics_result": "Not detected",
         "heavy_metals": {
           "mercury_mg_kg": 0.03,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.002,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.006,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.008
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.3,
-          "dioxins_pg_g": 0.12,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
-        "antibiotics_used": false,
-        "hormones_used": false,
-        "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-05",
-        "testing_frequency": "Monthly batch testing",
-        "water_quality": {
-          "source": "North Atlantic, South Iceland shelf",
-          "temperature_c": 5.8,
-          "classification": "Pristine — Class 1"
-        }
-      },
-
-      "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep frozen at -18°C or below. Once thawed, consume within 24 hours. Do not refreeze.",
-        "shelf_life_days": 365,
-        "best_before": "2026-03-08",
-        "batch_id": "BATCH-HAD-LF-20250309-001",
-        "barcode": "5694120001006",
-        "recipes": [
-          {
-            "name": "Haddock Loin with Parsley Sauce",
-            "url": "/recipes/haddock-parsley"
-          },
-          {
-            "name": "Classic Fish and Chips",
-            "url": "/recipes/fish-and-chips"
-          }
-        ]
-      }
-    },
-
-    {
-      "id": "prod-007",
-      "name": "Fresh Saithe — Whole",
-      "species": {
-        "common_name": "Saithe",
-        "icelandic_name": "Ufsi",
-        "scientific_name": "Pollachius virens",
-        "stock_area": "Icelandic Saithe — ICES Division 5a"
-      },
-      "cut": "whole_gutted",
-      "format": "fresh",
-      "weight_kg": 3.0,
-      "image": "/img/saithe-whole-fresh.jpg",
-
-      "topLayer": {
-        "headline": "Wild-caught Icelandic saithe — underrated and sustainable",
-        "origin_short": "Northwest Iceland",
-        "catch_method": "Bottom trawl",
-        "sustainability_score": 82,
-        "purity_score": 93,
-        "certifications": ["MSC"]
-      },
-
-      "saga": {
-        "catch_area": "Northwest Iceland shelf, Ísafjarðardjúp area",
-        "catch_method": "Bottom trawl",
-        "vessel_name": "Jón Vídalín ÍS-100",
-        "catch_date": "2025-03-18",
-        "landing_port": "Ísafjörður",
-        "landing_date": "2025-03-18",
-        "processing_facility": "Icelandic Premium Seafood, Ísafjörður branch",
-        "processing_method": "Gutted, washed, packed on ice",
-        "processing_date": "2025-03-18",
-        "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "Northwest Iceland shelf",
-            "coordinates": { "lat": 66.10, "lng": -23.50 },
-            "date": "2025-03-18",
-            "detail": "Bottom trawl vessel Jón Vídalín ÍS-100"
-          },
-          {
-            "step": "Landed",
-            "location": "Ísafjörður harbour",
-            "coordinates": { "lat": 66.07, "lng": -23.12 },
-            "date": "2025-03-18",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Ísafjörður processing plant",
-            "coordinates": { "lat": 66.07, "lng": -23.12 },
-            "date": "2025-03-18",
-            "detail": "Gutted, washed, packed on ice"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-19",
-            "detail": "Refrigerated truck (450 km)"
-          },
-          {
-            "step": "Exported",
-            "location": "Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-20",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-21",
-            "detail": "Available in store"
-          }
-        ],
-        "days_from_catch_to_shelf": 3
-      },
-
-      "sotspor": {
-        "carbon_kg_co2_per_kg": 3.1,
-        "fishing_fuel_liters_per_kg": 0.52,
-        "processing_energy_kwh_per_kg": 0.8,
-        "transport_km": 2800,
-        "transport_mode": "truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.3,
-        "packaging_material": "EPS box with ice",
-        "packaging_recyclable": true,
-        "waste_percentage": 15,
-        "water_liters_per_kg": 48,
-        "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
-          "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Bottom trawl uses more fuel than longline or seine methods. However, saithe stocks are healthy and well-managed. Longer domestic transport from Ísafjörður adds to footprint."
-      },
-
-      "naeringarefni": {
-        "per_100g": {
-          "energy_kcal": 92,
-          "energy_kj": 385,
-          "protein_g": 19.4,
-          "fat_total_g": 1.0,
-          "fat_saturated_g": 0.2,
-          "fat_polyunsaturated_g": 0.5,
-          "omega3_epa_mg": 90,
-          "omega3_dha_mg": 250,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.14
-        },
-        "vitamins_minerals": {
-          "vitamin_d_ug": 1.2,
-          "vitamin_b12_ug": 3.5,
-          "vitamin_a_ug": 8,
-          "selenium_ug": 36,
-          "iodine_ug": 170,
-          "phosphorus_mg": 220,
-          "potassium_mg": 380
-        },
-        "health_highlights": [
-          "High in protein",
-          "Low in fat",
-          "High in Omega-3",
-          "Rich in Vitamin B12",
-          "Rich in Selenium",
-          "Rich in Iodine"
-        ]
-      },
-
-      "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.08,
-          "mercury_eu_limit": 0.50,
+          "mercury_eu_limit": 0.5,
           "cadmium_mg_kg": 0.005,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.010,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.015
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.01,
+          "lead_eu_limit": 0.3
         },
         "contaminants": {
-          "pcbs_pg_g": 0.6,
-          "dioxins_pg_g": 0.20,
-          "dioxins_eu_limit_pg_g": 3.5
+          "pcbs_pg_g": 1.8,
+          "dioxins_pg_g": 0.9,
+          "dioxins_eu_limit_pg_g": 6.5
         },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
-        "antibiotics_used": false,
-        "hormones_used": false,
-        "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-10",
-        "testing_frequency": "Monthly batch testing",
         "water_quality": {
-          "source": "North Atlantic, Northwest Iceland shelf",
-          "temperature_c": 3.8,
-          "classification": "Pristine — Class 1"
+          "source": "Arnarfjörður, Westfjords",
+          "temperature_c": 6.8,
+          "classification": "Class A – Pristine"
         }
       },
-
       "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 3 days of purchase.",
+        "storage_instructions": "Keep refrigerated 0–4 °C. Consume within 2 days of opening.",
         "shelf_life_days": 7,
-        "best_before": "2025-03-25",
-        "batch_id": "BATCH-SAI-20250318-001",
-        "barcode": "5694120001007",
+        "best_before": "2026-04-17",
+        "batch_id": "VES-SAL-2026-0410-A",
+        "barcode": "5694120200019",
+        "allergens": ["Fish (Salmon)"],
         "recipes": [
-          {
-            "name": "Pan-fried Saithe with Brown Butter",
-            "url": "/recipes/saithe-brown-butter"
-          },
-          {
-            "name": "Saithe Fish Cakes",
-            "url": "/recipes/saithe-fish-cakes"
-          }
+          { "name": "Teriyaki Glazed Salmon" },
+          { "name": "Salmon with Dill and Mustard Sauce" },
+          { "name": "Gravlax – Icelandic Style" }
         ]
       }
     },
-
     {
-      "id": "prod-008",
-      "name": "Fresh Saithe — Loin",
-      "species": {
-        "common_name": "Saithe",
-        "icelandic_name": "Ufsi",
-        "scientific_name": "Pollachius virens",
-        "stock_area": "Icelandic Saithe — ICES Division 5a"
-      },
+      "id": "prod-006",
+      "name": "Salmon Fillet Frozen",
+      "format": "frozen",
       "cut": "loin",
-      "format": "fresh",
-      "weight_kg": 0.30,
-      "image": "/img/saithe-loin-fresh.jpg",
-
+      "species": {
+        "common_name": "Atlantic Salmon",
+        "scientific_name": "Salmo salar"
+      },
       "topLayer": {
-        "headline": "Premium saithe loin — rich flavour, great value",
-        "origin_short": "Northwest Iceland",
-        "catch_method": "Bottom trawl",
-        "sustainability_score": 78,
+        "origin_short": "Bíldudalur, Iceland",
+        "catch_method": "Farmed – Open Net Pen",
+        "sustainability_score": 86,
         "purity_score": 93,
-        "certifications": ["MSC"]
+        "certifications": ["ASC Certified", "Iceland Responsible Aquaculture"]
       },
-
       "saga": {
-        "catch_area": "Northwest Iceland shelf, Ísafjarðardjúp area",
-        "catch_method": "Bottom trawl",
-        "vessel_name": "Jón Vídalín ÍS-100",
-        "catch_date": "2025-03-18",
-        "landing_port": "Ísafjörður",
-        "landing_date": "2025-03-18",
-        "processing_facility": "Icelandic Premium Seafood, Ísafjörður branch",
-        "processing_method": "Filleted, loin-cut, skin removed, pin-boned, vacuum packed",
-        "processing_date": "2025-03-19",
+        "catch_date": "2026-03-18",
+        "vessel_name": "Vestfjarða Lax – Pen 5",
+        "landing_port": "Bíldudalur",
+        "catch_area": "Arnarfjörður, Westfjords",
+        "catch_method": "Farmed – Open Net Pen",
         "supply_chain": [
-          {
-            "step": "Caught",
-            "location": "Northwest Iceland shelf",
-            "coordinates": { "lat": 66.10, "lng": -23.50 },
-            "date": "2025-03-18",
-            "detail": "Bottom trawl vessel Jón Vídalín ÍS-100"
-          },
-          {
-            "step": "Landed",
-            "location": "Ísafjörður harbour",
-            "coordinates": { "lat": 66.07, "lng": -23.12 },
-            "date": "2025-03-18",
-            "detail": "Same-day landing"
-          },
-          {
-            "step": "Processed",
-            "location": "Ísafjörður processing plant",
-            "coordinates": { "lat": 66.07, "lng": -23.12 },
-            "date": "2025-03-19",
-            "detail": "Filleted, loin-cut, pin-boned, vacuum packed"
-          },
-          {
-            "step": "Shipped",
-            "location": "Reykjavík cold storage",
-            "coordinates": { "lat": 64.15, "lng": -21.95 },
-            "date": "2025-03-19",
-            "detail": "Refrigerated truck (450 km)"
-          },
-          {
-            "step": "Exported",
-            "location": "Keflavík airport",
-            "coordinates": { "lat": 63.98, "lng": -22.57 },
-            "date": "2025-03-20",
-            "detail": "Air freight to UK market"
-          },
-          {
-            "step": "Retail",
-            "location": "UK retail",
-            "coordinates": { "lat": 51.51, "lng": -0.13 },
-            "date": "2025-03-21",
-            "detail": "Available in store"
-          }
+          { "step": "Harvested", "location": "Arnarfjörður Farm Site", "date": "2026-03-18", "detail": "Humane harvest, 14-month grow cycle" },
+          { "step": "Processed", "location": "Vestfjarða Lax Plant, Bíldudalur", "date": "2026-03-18", "detail": "Filleted, trimmed, portioned same day" },
+          { "step": "Frozen", "location": "Vestfjarða Lax Plant, Bíldudalur", "date": "2026-03-18", "detail": "Blast frozen at –35 °C within 8h of harvest" },
+          { "step": "Shipped", "location": "Reykjavík Port", "date": "2026-03-22", "detail": "Sea freight, –18 °C container" },
+          { "step": "Delivered", "location": "UK Distribution Centre", "date": "2026-03-29", "detail": "Frozen chain verified, QC passed" }
         ],
-        "days_from_catch_to_shelf": 3
+        "processing_method": "Machine-filleted, trimmed, blast frozen",
+        "processing_facility": "Vestfjarða Lax, Bíldudalur",
+        "days_from_catch_to_shelf": 14
       },
-
       "sotspor": {
-        "carbon_kg_co2_per_kg": 4.5,
-        "fishing_fuel_liters_per_kg": 0.52,
-        "processing_energy_kwh_per_kg": 2.3,
-        "transport_km": 2800,
-        "transport_mode": "truck + air",
-        "cold_chain_energy_kwh_per_kg": 0.5,
-        "packaging_material": "Vacuum pack, recycled cardboard box",
+        "carbon_kg_co2_per_kg": 2.6,
+        "transport_km": 2500,
+        "fishing_fuel_liters_per_kg": 0.0,
+        "processing_energy_kwh_per_kg": 0.70,
+        "cold_chain_energy_kwh_per_kg": 0.60,
+        "water_liters_per_kg": 2800,
+        "waste_percentage": 11,
         "packaging_recyclable": true,
-        "waste_percentage": 56,
-        "water_liters_per_kg": 95,
+        "transport_mode": "Sea freight (frozen)",
+        "notes": "Sea freight produces ~90% less CO₂ than air freight per kg. Icelandic farms use 100% renewable energy. Cold fjord waters reduce disease pressure naturally.",
         "comparison": {
-          "category_avg_whitefish_carbon": 3.2,
-          "chicken_carbon": 5.7,
           "beef_carbon": 27.0,
-          "plant_protein_carbon": 0.8
-        },
-        "notes": "Highest carbon footprint in the range — combines trawl fishing fuel use, loin yield loss, long domestic transport from Westfjords, and air freight. Still significantly lower than land-based animal proteins."
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 6.9
+        }
       },
-
       "naeringarefni": {
+        "health_highlights": [
+          "Rich in Omega-3 (EPA + DHA)",
+          "High in protein – 20g per 100g",
+          "Excellent source of Vitamin D",
+          "Good source of Vitamin B12 and Selenium"
+        ],
         "per_100g": {
-          "energy_kcal": 92,
-          "energy_kj": 385,
-          "protein_g": 19.4,
-          "fat_total_g": 1.0,
-          "fat_saturated_g": 0.2,
-          "fat_polyunsaturated_g": 0.5,
-          "omega3_epa_mg": 90,
-          "omega3_dha_mg": 250,
-          "carbohydrates_g": 0,
-          "sugar_g": 0,
-          "fiber_g": 0,
-          "salt_g": 0.14
+          "energy_kcal": 208,
+          "energy_kj": 870,
+          "protein_g": 20.4,
+          "fat_total_g": 13.4,
+          "fat_saturated_g": 3.0,
+          "fat_polyunsaturated_g": 3.9,
+          "omega3_epa_mg": 690,
+          "omega3_dha_mg": 1100,
+          "carbohydrates_g": 0.0,
+          "salt_g": 0.10
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 1.2,
-          "vitamin_b12_ug": 3.5,
-          "vitamin_a_ug": 8,
-          "selenium_ug": 36,
-          "iodine_ug": 170,
-          "phosphorus_mg": 220,
-          "potassium_mg": 380
-        },
-        "health_highlights": [
-          "High in protein",
-          "Low in fat",
-          "High in Omega-3",
-          "Rich in Vitamin B12",
-          "Rich in Selenium",
-          "Rich in Iodine"
-        ]
+          "vitamin_d_ug": 11.0,
+          "vitamin_b12_ug": 3.2,
+          "selenium_ug": 36.5,
+          "iodine_ug": 14,
+          "phosphorus_mg": 240,
+          "potassium_mg": 363
+        }
       },
-
       "hreinleiki": {
-        "heavy_metals": {
-          "mercury_mg_kg": 0.08,
-          "mercury_eu_limit": 0.50,
-          "cadmium_mg_kg": 0.005,
-          "cadmium_eu_limit": 0.050,
-          "lead_mg_kg": 0.010,
-          "lead_eu_limit": 0.30,
-          "arsenic_inorganic_mg_kg": 0.015
-        },
-        "contaminants": {
-          "pcbs_pg_g": 0.6,
-          "dioxins_pg_g": 0.20,
-          "dioxins_eu_limit_pg_g": 3.5
-        },
-        "microplastics_tested": true,
-        "microplastics_result": "Below detection limit",
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-03-19",
         "antibiotics_used": false,
         "hormones_used": false,
         "pesticides_detected": false,
-        "all_eu_limits_passed": true,
-        "testing_lab": "Matís ohf.",
-        "testing_date": "2025-03-10",
-        "testing_frequency": "Monthly batch testing",
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.03,
+          "mercury_eu_limit": 0.5,
+          "cadmium_mg_kg": 0.005,
+          "cadmium_eu_limit": 0.05,
+          "lead_mg_kg": 0.01,
+          "lead_eu_limit": 0.3
+        },
+        "contaminants": {
+          "pcbs_pg_g": 1.8,
+          "dioxins_pg_g": 0.9,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
         "water_quality": {
-          "source": "North Atlantic, Northwest Iceland shelf",
-          "temperature_c": 3.8,
-          "classification": "Pristine — Class 1"
+          "source": "Arnarfjörður, Westfjords",
+          "temperature_c": 5.9,
+          "classification": "Class A – Pristine"
         }
       },
-
       "extra": {
-        "allergens": ["fish"],
-        "storage_instructions": "Keep at 0–2°C. Consume within 2 days of purchase.",
-        "shelf_life_days": 5,
-        "best_before": "2025-03-24",
-        "batch_id": "BATCH-SAI-L-20250319-001",
-        "barcode": "5694120001008",
+        "storage_instructions": "Keep frozen at –18 °C. Once thawed, keep refrigerated and consume within 24 hours. Do not refreeze.",
+        "shelf_life_days": 365,
+        "best_before": "2027-03-18",
+        "batch_id": "VES-SAL-2026-0318-F",
+        "barcode": "5694120200026",
+        "allergens": ["Fish (Salmon)"],
         "recipes": [
-          {
-            "name": "Saithe Loin with Mustard Glaze",
-            "url": "/recipes/saithe-mustard"
-          },
-          {
-            "name": "Asian-style Saithe Stir-fry",
-            "url": "/recipes/saithe-stirfry"
-          }
+          { "name": "Teriyaki Glazed Salmon" },
+          { "name": "Oven-Baked Salmon with Lemon" },
+          { "name": "Gravlax – Icelandic Style" }
         ]
       }
     }
