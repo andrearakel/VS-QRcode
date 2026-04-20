@@ -3,6 +3,7 @@ import CategoryCard from '../layout/CategoryCard';
 import Badge from '../common/Badge';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import ScoreGauge from '../common/ScoreGauge';
+import { Link } from 'react-router-dom';
 
 export default function ProductLanding({ product }) {
   const { topLayer, sotspor, naeringarefni, hreinleiki } = product;
@@ -166,7 +167,7 @@ function CategoryDetail({ category, product, onClose }) {
       break;
     case 'extra':
       title = 'ℹ️ More Info';
-      content = <ExtraDetail extra={product.extra} />;
+      content = <ExtraDetail extra={product.extra} productId={product.id} />;
       break;
     default:
       title = 'Details';
@@ -438,7 +439,7 @@ function HreinleikiDetail({ hreinleiki }) {
   );
 }
 
-function ExtraDetail({ extra }) {
+function ExtraDetail({ extra, productId }) {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-3">
@@ -450,20 +451,22 @@ function ExtraDetail({ extra }) {
         <InfoBox label="Allergens" value={extra.allergens.join(', ')} />
       </div>
 
-      {extra.recipes && extra.recipes.length > 0 && (
+{extra.recipes && extra.recipes.length > 0 && (
         <div>
           <h3 className="font-semibold text-gray-900 mb-3">Recipes</h3>
           <div className="space-y-2">
-            {extra.recipes.map((recipe) => (
-              <div
+            {extra.recipes.map((recipe, index) => (
+              <Link
+                to={`/product/${productId}/recipe/${index}`}
                 key={recipe.name}
-                className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl"
+                className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors cursor-pointer"
               >
                 <span className="text-2xl">👨‍🍳</span>
-                <span className="text-sm font-medium text-orange-900">
+                <span className="text-sm font-medium text-orange-900 flex-1">
                   {recipe.name}
                 </span>
-              </div>
+                <span className="text-orange-400 text-lg">›</span>
+              </Link>
             ))}
           </div>
         </div>

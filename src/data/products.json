@@ -59,24 +59,24 @@
           "Natural source of Iodine"
         ],
         "per_100g": {
-          "energy_kcal": 82,
-          "energy_kj": 343,
-          "protein_g": 17.8,
-          "fat_total_g": 0.7,
-          "fat_saturated_g": 0.1,
-          "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 64,
-          "omega3_dha_mg": 120,
+          "energy_kcal": 76,
+          "energy_kj": 321,
+          "protein_g": 17.7,
+          "fat_total_g": 0.54,
+          "fat_saturated_g": 0.093,
+          "fat_polyunsaturated_g": 0.22,
+          "omega3_epa_mg": 80,
+          "omega3_dha_mg": 110,
           "carbohydrates_g": 0.0,
-          "salt_g": 0.15
+          "salt_g": 0.19
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 1.0,
-          "vitamin_b12_ug": 1.2,
-          "selenium_ug": 33.1,
-          "iodine_ug": 110,
-          "phosphorus_mg": 203,
-          "potassium_mg": 413
+          "vitamin_d_ug": 0,
+          "vitamin_b12_ug": 0.8,
+          "selenium_ug": 28.0,
+          "iodine_ug": 45,
+          "phosphorus_mg": 198,
+          "potassium_mg": 366
         }
       },
       "hreinleiki": {
@@ -178,25 +178,25 @@
           "Rich in Vitamin B12 and Selenium",
           "Natural source of Iodine"
         ],
-        "per_100g": {
-          "energy_kcal": 82,
-          "energy_kj": 343,
-          "protein_g": 17.8,
-          "fat_total_g": 0.7,
-          "fat_saturated_g": 0.1,
-          "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 64,
-          "omega3_dha_mg": 120,
+              "per_100g": {
+          "energy_kcal": 76,
+          "energy_kj": 321,
+          "protein_g": 17.7,
+          "fat_total_g": 0.54,
+          "fat_saturated_g": 0.093,
+          "fat_polyunsaturated_g": 0.22,
+          "omega3_epa_mg": 80,
+          "omega3_dha_mg": 110,
           "carbohydrates_g": 0.0,
-          "salt_g": 0.15
+          "salt_g": 0.19
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 1.0,
-          "vitamin_b12_ug": 1.2,
-          "selenium_ug": 33.1,
-          "iodine_ug": 110,
-          "phosphorus_mg": 203,
-          "potassium_mg": 413
+          "vitamin_d_ug": 0,
+          "vitamin_b12_ug": 0.8,
+          "selenium_ug": 28.0,
+          "iodine_ug": 45,
+          "phosphorus_mg": 198,
+          "potassium_mg": 366
         }
       },
       "hreinleiki": {
@@ -299,24 +299,24 @@
           "Rich in Selenium and Phosphorus"
         ],
         "per_100g": {
-          "energy_kcal": 90,
-          "energy_kj": 377,
-          "protein_g": 19.0,
-          "fat_total_g": 0.9,
-          "fat_saturated_g": 0.2,
-          "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 47,
-          "omega3_dha_mg": 104,
+          "energy_kcal": 76,
+          "energy_kj": 321,
+          "protein_g": 17.7,
+          "fat_total_g": 0.53,
+          "fat_saturated_g": 0.097,
+          "fat_polyunsaturated_g": 0.223,
+          "omega3_epa_mg": 84,
+          "omega3_dha_mg": 115,
           "carbohydrates_g": 0.0,
-          "salt_g": 0.20
+          "salt_g": 0.21
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 0.5,
-          "vitamin_b12_ug": 1.8,
-          "selenium_ug": 30.7,
-          "iodine_ug": 250,
-          "phosphorus_mg": 227,
-          "potassium_mg": 351
+          "vitamin_d_ug": 0.7,
+          "vitamin_b12_ug": 2.0,
+          "selenium_ug": 40.1,
+          "iodine_ug": 191,
+          "phosphorus_mg": 191,
+          "potassium_mg": 313
         }
       },
       "hreinleiki": {
@@ -419,24 +419,24 @@
           "Rich in Selenium and Phosphorus"
         ],
         "per_100g": {
-          "energy_kcal": 90,
-          "energy_kj": 377,
-          "protein_g": 19.0,
-          "fat_total_g": 0.9,
-          "fat_saturated_g": 0.2,
-          "fat_polyunsaturated_g": 0.3,
-          "omega3_epa_mg": 47,
-          "omega3_dha_mg": 104,
+          "energy_kcal": 76,
+          "energy_kj": 321,
+          "protein_g": 17.7,
+          "fat_total_g": 0.53,
+          "fat_saturated_g": 0.097,
+          "fat_polyunsaturated_g": 0.223,
+          "omega3_epa_mg": 84,
+          "omega3_dha_mg": 115,
           "carbohydrates_g": 0.0,
-          "salt_g": 0.20
+          "salt_g": 0.21
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 0.5,
-          "vitamin_b12_ug": 1.8,
-          "selenium_ug": 30.7,
-          "iodine_ug": 250,
-          "phosphorus_mg": 227,
-          "potassium_mg": 351
+          "vitamin_d_ug": 0.7,
+          "vitamin_b12_ug": 2.0,
+          "selenium_ug": 40.1,
+          "iodine_ug": 191,
+          "phosphorus_mg": 191,
+          "potassium_mg": 313
         }
       },
       "hreinleiki": {
@@ -538,24 +538,24 @@
           "Good source of Vitamin B12 and Selenium"
         ],
         "per_100g": {
-          "energy_kcal": 208,
-          "energy_kj": 870,
-          "protein_g": 20.4,
-          "fat_total_g": 13.4,
-          "fat_saturated_g": 3.0,
-          "fat_polyunsaturated_g": 3.9,
-          "omega3_epa_mg": 690,
-          "omega3_dha_mg": 1100,
+          "energy_kcal": 274,
+          "energy_kj": 1137,
+          "protein_g": 18.1,
+          "fat_total_g": 22.4,
+          "fat_saturated_g": 3.7,
+          "fat_polyunsaturated_g": 5.2,
+          "omega3_epa_mg": 1080,
+          "omega3_dha_mg": 1490,
           "carbohydrates_g": 0.0,
           "salt_g": 0.10
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 11.0,
-          "vitamin_b12_ug": 3.2,
-          "selenium_ug": 36.5,
-          "iodine_ug": 14,
-          "phosphorus_mg": 240,
-          "potassium_mg": 363
+          "vitamin_d_ug": 10.9,
+          "vitamin_b12_ug": 6.9,
+          "selenium_ug": 28.1,
+          "iodine_ug": 4,
+          "phosphorus_mg": 237,
+          "potassium_mg": 337
         }
       },
       "hreinleiki": {
@@ -656,25 +656,25 @@
           "Excellent source of Vitamin D",
           "Good source of Vitamin B12 and Selenium"
         ],
-        "per_100g": {
-          "energy_kcal": 208,
-          "energy_kj": 870,
-          "protein_g": 20.4,
-          "fat_total_g": 13.4,
-          "fat_saturated_g": 3.0,
-          "fat_polyunsaturated_g": 3.9,
-          "omega3_epa_mg": 690,
-          "omega3_dha_mg": 1100,
+         "per_100g": {
+          "energy_kcal": 274,
+          "energy_kj": 1137,
+          "protein_g": 18.1,
+          "fat_total_g": 22.4,
+          "fat_saturated_g": 3.7,
+          "fat_polyunsaturated_g": 5.2,
+          "omega3_epa_mg": 1080,
+          "omega3_dha_mg": 1490,
           "carbohydrates_g": 0.0,
           "salt_g": 0.10
         },
         "vitamins_minerals": {
-          "vitamin_d_ug": 11.0,
-          "vitamin_b12_ug": 3.2,
-          "selenium_ug": 36.5,
-          "iodine_ug": 14,
-          "phosphorus_mg": 240,
-          "potassium_mg": 363
+          "vitamin_d_ug": 10.9,
+          "vitamin_b12_ug": 6.9,
+          "selenium_ug": 28.1,
+          "iodine_ug": 4,
+          "phosphorus_mg": 237,
+          "potassium_mg": 337
         }
       },
       "hreinleiki": {

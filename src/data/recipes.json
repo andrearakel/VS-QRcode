@@ -1,0 +1,468 @@
+{
+  "prod-001": [
+    {
+      "name": "Pan-Seared Cod with Lemon Butter",
+      "servings": 2,
+      "cook_time_min": 15,
+      "ingredients": [
+        "2 fresh cod loin portions (approx. 150 g each)",
+        "1 tbsp olive oil",
+        "30 g unsalted butter",
+        "1 lemon, juiced and zested",
+        "1 clove garlic, thinly sliced",
+        "Salt and freshly ground black pepper",
+        "Fresh parsley, chopped"
+      ],
+      "steps": [
+        "Pat the cod loins dry with kitchen paper and season both sides with salt and pepper.",
+        "Heat olive oil in a non-stick frying pan over medium-high heat until shimmering.",
+        "Place cod loins presentation-side down. Cook without moving for 3–4 minutes until a golden crust forms.",
+        "Flip carefully. Add butter, garlic, and lemon zest to the pan.",
+        "Tilt the pan and baste the cod with the foaming butter for 2–3 minutes until the fish is opaque throughout.",
+        "Remove from heat. Squeeze lemon juice over the fish and scatter with fresh parsley.",
+        "Serve immediately with steamed new potatoes or a green salad."
+      ]
+    },
+    {
+      "name": "Plokkfiskur — Traditional Icelandic Mashed Fish",
+      "servings": 4,
+      "cook_time_min": 35,
+      "ingredients": [
+        "400 g fresh cod loin, skin removed",
+        "500 g floury potatoes, peeled and quartered",
+        "1 medium onion, finely diced",
+        "25 g butter",
+        "250 ml whole milk",
+        "Salt and white pepper to taste",
+        "Rye bread and butter, to serve"
+      ],
+      "steps": [
+        "Place the cod in a saucepan, cover with cold water, and bring to a gentle simmer. Poach for 8–10 minutes until the fish flakes easily. Remove and flake into large pieces, discarding any bones.",
+        "Meanwhile, boil the potatoes in salted water until tender, about 15 minutes. Drain and mash roughly — some lumps are traditional.",
+        "In a large saucepan, melt the butter over medium heat. Sauté the onion for 5 minutes until soft and translucent.",
+        "Add the mashed potato and flaked fish to the onion. Stir gently to combine.",
+        "Pour in the milk gradually, stirring over low heat until you reach a creamy but chunky consistency.",
+        "Season with salt and white pepper.",
+        "Serve hot in bowls with dark Icelandic rye bread and cold butter."
+      ]
+    },
+    {
+      "name": "Cod en Papillote with Herbs",
+      "servings": 2,
+      "cook_time_min": 20,
+      "ingredients": [
+        "2 fresh cod loin portions (approx. 150 g each)",
+        "1 small courgette, thinly sliced",
+        "8 cherry tomatoes, halved",
+        "2 sprigs fresh thyme",
+        "2 sprigs fresh dill",
+        "2 thin slices of lemon",
+        "2 tbsp dry white wine or fish stock",
+        "1 tbsp extra-virgin olive oil",
+        "Salt and freshly ground black pepper"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6).",
+        "Cut two large rectangles of baking parchment (about 40 × 30 cm each).",
+        "Divide the courgette slices and cherry tomatoes between the two sheets, placing them in the centre.",
+        "Lay a cod loin on top of each vegetable bed. Season with salt and pepper.",
+        "Top each portion with a lemon slice, a sprig of thyme, and a sprig of dill.",
+        "Drizzle each with 1 tbsp wine and ½ tbsp olive oil.",
+        "Fold the parchment over and crimp the edges tightly to seal into parcels.",
+        "Place on a baking tray and bake for 14–16 minutes until the parcels are puffed.",
+        "Transfer parcels to plates. Let guests open at the table to enjoy the aromatic steam."
+      ]
+    }
+  ],
+
+  "prod-002": [
+    {
+      "name": "Oven-Baked Cod from Frozen with Herb Crust",
+      "servings": 2,
+      "cook_time_min": 30,
+      "ingredients": [
+        "2 frozen cod loin portions (approx. 150 g each)",
+        "40 g panko breadcrumbs",
+        "2 tbsp fresh parsley, finely chopped",
+        "1 tsp dried oregano",
+        "1 clove garlic, minced",
+        "2 tbsp olive oil",
+        "1 tbsp Dijon mustard",
+        "Salt and freshly ground black pepper",
+        "Lemon wedges, to serve"
+      ],
+      "steps": [
+        "Preheat the oven to 220 °C (200 °C fan / gas 7). Line a baking tray with parchment.",
+        "Place the frozen cod loins on the tray. Brush the top of each with Dijon mustard.",
+        "In a small bowl, mix panko, parsley, oregano, garlic, olive oil, salt, and pepper.",
+        "Press the breadcrumb mixture firmly onto the mustard-coated top of each portion.",
+        "Bake for 25–28 minutes until the crust is golden and the fish is opaque and flakes easily.",
+        "Rest for 1 minute, then serve with lemon wedges and steamed vegetables."
+      ]
+    },
+    {
+      "name": "Plokkfiskur — Traditional Icelandic Mashed Fish",
+      "servings": 4,
+      "cook_time_min": 40,
+      "ingredients": [
+        "400 g frozen cod loin",
+        "500 g floury potatoes, peeled and quartered",
+        "1 medium onion, finely diced",
+        "25 g butter",
+        "250 ml whole milk",
+        "Salt and white pepper to taste",
+        "Rye bread and butter, to serve"
+      ],
+      "steps": [
+        "Place the frozen cod in a saucepan, cover with cold water, and bring to a gentle simmer. Poach for 12–14 minutes until the fish flakes easily. Remove and flake into large pieces, discarding any bones.",
+        "Meanwhile, boil the potatoes in salted water until tender, about 15 minutes. Drain and mash roughly — some lumps are traditional.",
+        "In a large saucepan, melt the butter over medium heat. Sauté the onion for 5 minutes until soft and translucent.",
+        "Add the mashed potato and flaked fish to the onion. Stir gently to combine.",
+        "Pour in the milk gradually, stirring over low heat until you reach a creamy but chunky consistency.",
+        "Season with salt and white pepper.",
+        "Serve hot in bowls with dark Icelandic rye bread and cold butter."
+      ]
+    },
+    {
+      "name": "Cod and Potato Chowder",
+      "servings": 4,
+      "cook_time_min": 35,
+      "ingredients": [
+        "300 g frozen cod loin",
+        "2 medium potatoes, peeled and diced (1.5 cm cubes)",
+        "1 medium onion, diced",
+        "1 stick celery, diced",
+        "1 medium carrot, diced",
+        "2 cloves garlic, minced",
+        "500 ml fish or vegetable stock",
+        "200 ml whole milk",
+        "100 ml double cream",
+        "1 tbsp butter",
+        "1 bay leaf",
+        "Salt and freshly ground black pepper",
+        "Fresh chives, chopped, to garnish"
+      ],
+      "steps": [
+        "Melt butter in a large saucepan over medium heat. Add onion, celery, and carrot. Cook for 5 minutes until softened.",
+        "Add garlic and cook for 1 minute more.",
+        "Add the diced potatoes, stock, and bay leaf. Bring to a boil, then reduce to a simmer for 12 minutes until potatoes are tender.",
+        "Place the frozen cod directly into the simmering chowder. Cover and cook for 10 minutes.",
+        "Remove the cod, flake into large chunks, and return to the pot.",
+        "Stir in the milk and cream. Heat gently — do not boil.",
+        "Season with salt and pepper. Remove the bay leaf.",
+        "Ladle into warm bowls and garnish with fresh chives. Serve with crusty bread."
+      ]
+    }
+  ],
+
+  "prod-003": [
+    {
+      "name": "Grilled Haddock with Mustard and Dill",
+      "servings": 2,
+      "cook_time_min": 12,
+      "ingredients": [
+        "2 fresh haddock loin portions (approx. 150 g each)",
+        "1 tbsp wholegrain mustard",
+        "1 tbsp crème fraîche",
+        "2 tbsp fresh dill, chopped",
+        "1 tsp lemon juice",
+        "1 tbsp olive oil",
+        "Salt and freshly ground black pepper"
+      ],
+      "steps": [
+        "Preheat the grill to high. Line a grill tray with foil and lightly oil.",
+        "In a small bowl, mix mustard, crème fraîche, half the dill, and lemon juice.",
+        "Place haddock loins on the tray. Brush with olive oil and season with salt and pepper.",
+        "Grill for 4 minutes on the first side.",
+        "Flip carefully, then spread the mustard-dill mixture evenly over the top of each piece.",
+        "Grill for another 4–5 minutes until the topping is lightly golden and the fish is cooked through.",
+        "Scatter with remaining fresh dill. Serve with boiled new potatoes and a cucumber salad."
+      ]
+    },
+    {
+      "name": "Haddock and Spinach en Papillote",
+      "servings": 2,
+      "cook_time_min": 18,
+      "ingredients": [
+        "2 fresh haddock loin portions (approx. 150 g each)",
+        "100 g baby spinach",
+        "1 small shallot, finely sliced",
+        "1 tbsp capers, drained",
+        "2 thin slices of lemon",
+        "2 tbsp dry white wine",
+        "1 tbsp butter, cut into small pieces",
+        "Salt and freshly ground black pepper"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6).",
+        "Cut two large sheets of baking parchment (about 40 × 30 cm each).",
+        "Divide the baby spinach between the sheets, forming a bed in the centre of each.",
+        "Scatter shallot slices and capers over the spinach.",
+        "Place a haddock loin on each spinach bed. Season with salt and pepper.",
+        "Top each with a lemon slice and dots of butter. Drizzle with 1 tbsp wine each.",
+        "Fold the parchment over and crimp the edges tightly to seal.",
+        "Bake for 14–16 minutes until the parcels puff up.",
+        "Serve in the parcels — open at the table for the full aroma."
+      ]
+    },
+    {
+      "name": "Quick Haddock Ceviche",
+      "servings": 2,
+      "cook_time_min": 5,
+      "ingredients": [
+        "200 g very fresh haddock loin, skin removed",
+        "3 limes, juiced",
+        "1 small red onion, very thinly sliced",
+        "1 red chilli, deseeded and finely diced",
+        "1 ripe avocado, diced",
+        "10 cherry tomatoes, quartered",
+        "Small handful fresh coriander, roughly chopped",
+        "1 tbsp extra-virgin olive oil",
+        "Flaky sea salt"
+      ],
+      "steps": [
+        "Using a very sharp knife, slice the haddock into thin pieces (about 3 mm thick). Arrange on a chilled plate.",
+        "Pour the lime juice evenly over the fish. Allow to sit for 2–3 minutes — the acid will lightly 'cook' the surface.",
+        "Scatter the red onion, chilli, avocado, and cherry tomatoes over the fish.",
+        "Drizzle with olive oil and sprinkle with flaky sea salt.",
+        "Finish with fresh coriander. Serve immediately with tortilla chips or toasted sourdough.",
+        "Note: Only use sashimi-grade fresh fish for ceviche. The fish is essentially raw in the centre."
+      ]
+    }
+  ],
+
+  "prod-004": [
+    {
+      "name": "Oven-Baked Haddock from Frozen with Parmesan Crust",
+      "servings": 2,
+      "cook_time_min": 30,
+      "ingredients": [
+        "2 frozen haddock loin portions (approx. 150 g each)",
+        "30 g panko breadcrumbs",
+        "20 g Parmesan cheese, finely grated",
+        "1 tbsp fresh parsley, finely chopped",
+        "1 tsp smoked paprika",
+        "2 tbsp olive oil",
+        "1 tbsp mayonnaise",
+        "Lemon wedges, to serve"
+      ],
+      "steps": [
+        "Preheat the oven to 220 °C (200 °C fan / gas 7). Line a baking tray with parchment.",
+        "Place the frozen haddock loins on the tray. Spread a thin layer of mayonnaise on top of each — this helps the crust stick.",
+        "In a small bowl, mix panko, Parmesan, parsley, paprika, and olive oil.",
+        "Press the Parmesan crumb mixture firmly onto each haddock portion.",
+        "Bake for 25–28 minutes until the crust is golden and crisp and the fish is opaque throughout.",
+        "Serve with lemon wedges, chips, and mushy peas for a posh fish-and-chips night."
+      ]
+    },
+    {
+      "name": "Haddock and Leek Gratin",
+      "servings": 4,
+      "cook_time_min": 45,
+      "ingredients": [
+        "400 g frozen haddock loin",
+        "2 large leeks, washed and sliced",
+        "30 g butter",
+        "30 g plain flour",
+        "400 ml whole milk",
+        "80 g mature cheddar, grated",
+        "1 tsp English mustard",
+        "Salt and white pepper",
+        "2 tbsp panko breadcrumbs"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6).",
+        "Place the frozen haddock in a saucepan, cover with water, and simmer for 12 minutes. Drain, flake into large chunks, and set aside.",
+        "In the same pan, melt butter over medium heat. Add the leeks and cook gently for 8 minutes until very soft.",
+        "Stir in the flour and cook for 1 minute. Gradually add the milk, stirring constantly, until you have a smooth sauce.",
+        "Remove from heat. Stir in half the cheddar and the mustard. Season with salt and white pepper.",
+        "Gently fold in the flaked haddock. Pour into a buttered ovenproof dish.",
+        "Top with the remaining cheddar and panko breadcrumbs.",
+        "Bake for 18–20 minutes until bubbling and golden on top. Serve with crusty bread or mashed potato."
+      ]
+    },
+    {
+      "name": "Haddock Fishcakes",
+      "servings": 4,
+      "cook_time_min": 40,
+      "ingredients": [
+        "300 g frozen haddock loin",
+        "400 g floury potatoes, peeled and quartered",
+        "2 spring onions, finely sliced",
+        "2 tbsp fresh parsley, chopped",
+        "1 tsp lemon zest",
+        "1 egg, beaten",
+        "50 g plain flour",
+        "80 g panko breadcrumbs",
+        "Vegetable oil for shallow frying",
+        "Salt and freshly ground black pepper"
+      ],
+      "steps": [
+        "Boil the potatoes in salted water until tender, about 15 minutes. Drain well and mash until smooth. Allow to cool slightly.",
+        "Meanwhile, poach the frozen haddock in simmering water for 12 minutes. Drain, flake finely, and pat dry.",
+        "Combine the mashed potato, flaked haddock, spring onions, parsley, lemon zest, salt, and pepper in a large bowl. Mix well.",
+        "Shape into 8 even patties, about 2 cm thick. Place on a tray and chill in the fridge for 15 minutes to firm up.",
+        "Set up a breading station: flour in one shallow dish, beaten egg in another, panko in a third.",
+        "Coat each fishcake in flour, then egg, then panko, pressing gently to adhere.",
+        "Heat 1 cm of vegetable oil in a large frying pan over medium heat. Fry fishcakes in batches for 3–4 minutes per side until golden and crisp.",
+        "Drain on kitchen paper. Serve with tartare sauce, lemon wedges, and a simple salad."
+      ]
+    }
+  ],
+
+  "prod-005": [
+    {
+      "name": "Honey-Soy Glazed Salmon",
+      "servings": 2,
+      "cook_time_min": 15,
+      "ingredients": [
+        "2 fresh salmon fillet portions (approx. 150 g each), skin on",
+        "2 tbsp soy sauce",
+        "1 tbsp runny honey",
+        "1 tsp sesame oil",
+        "1 clove garlic, grated",
+        "1 tsp fresh ginger, grated",
+        "1 tsp rice vinegar",
+        "1 tsp sesame seeds",
+        "1 spring onion, thinly sliced"
+      ],
+      "steps": [
+        "Whisk together soy sauce, honey, sesame oil, garlic, ginger, and rice vinegar in a small bowl.",
+        "Heat a non-stick frying pan over medium-high heat. Place salmon skin-side down and cook for 4 minutes until the skin is crisp.",
+        "Flip the salmon. Pour the glaze into the pan around the fish.",
+        "Cook for 3–4 minutes, spooning the bubbling glaze over the salmon repeatedly as it thickens.",
+        "Remove from heat when the salmon is just cooked through and the glaze is sticky and caramelised.",
+        "Sprinkle with sesame seeds and sliced spring onion.",
+        "Serve immediately with steamed jasmine rice and tenderstem broccoli."
+      ]
+    },
+    {
+      "name": "Grilled Salmon with Avocado Salsa",
+      "servings": 2,
+      "cook_time_min": 12,
+      "ingredients": [
+        "2 fresh salmon fillet portions (approx. 150 g each), skin on",
+        "1 tbsp olive oil",
+        "Salt and freshly ground black pepper",
+        "1 ripe avocado, diced",
+        "10 cherry tomatoes, quartered",
+        "½ small red onion, finely diced",
+        "1 lime, juiced",
+        "Small handful fresh coriander, chopped",
+        "Pinch of chilli flakes"
+      ],
+      "steps": [
+        "Prepare the salsa: combine avocado, cherry tomatoes, red onion, lime juice, coriander, chilli flakes, and a pinch of salt. Set aside.",
+        "Preheat the grill to high. Line a grill tray with foil.",
+        "Brush the salmon with olive oil and season with salt and pepper.",
+        "Grill skin-side down for 5 minutes. Flip and grill for another 3–4 minutes until just cooked through — the centre should still be slightly translucent.",
+        "Transfer to plates and spoon the avocado salsa generously over the top.",
+        "Serve with a lime wedge and warm flatbread or a leafy salad."
+      ]
+    },
+    {
+      "name": "Salmon and Cream Cheese Bagel",
+      "servings": 2,
+      "cook_time_min": 5,
+      "ingredients": [
+        "150 g fresh salmon fillet, skin removed",
+        "2 bagels, sliced and lightly toasted",
+        "80 g cream cheese",
+        "1 tbsp capers, drained",
+        "¼ red onion, very thinly sliced",
+        "Small handful of rocket",
+        "1 tsp lemon juice",
+        "Freshly ground black pepper"
+      ],
+      "steps": [
+        "Using a very sharp knife, slice the raw salmon as thinly as possible at a slight angle (sashimi-style).",
+        "Spread cream cheese generously on each toasted bagel half.",
+        "Arrange the salmon slices over the cream cheese.",
+        "Top with capers, red onion slices, and a small handful of rocket.",
+        "Squeeze lemon juice over the top and finish with freshly ground black pepper.",
+        "Serve immediately as a luxurious brunch or light lunch.",
+        "Note: Only use sashimi-grade fresh fish when serving raw. Alternatively, use smoked or cured salmon."
+      ]
+    }
+  ],
+
+  "prod-006": [
+    {
+      "name": "Teriyaki Salmon from Frozen",
+      "servings": 2,
+      "cook_time_min": 30,
+      "ingredients": [
+        "2 frozen salmon fillet portions (approx. 150 g each)",
+        "3 tbsp soy sauce",
+        "2 tbsp mirin",
+        "1 tbsp sake or dry white wine",
+        "1 tbsp brown sugar",
+        "1 tsp cornflour mixed with 1 tbsp water",
+        "1 tsp sesame seeds",
+        "1 spring onion, sliced"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6). Line a baking tray with parchment.",
+        "Place the frozen salmon fillets on the tray. Bake for 15 minutes to partially cook from frozen.",
+        "Meanwhile, make the teriyaki sauce: combine soy sauce, mirin, sake, and brown sugar in a small saucepan. Bring to a simmer, then stir in the cornflour mixture. Cook for 1–2 minutes until glossy and thickened.",
+        "Remove the salmon from the oven. Brush generously with the teriyaki sauce.",
+        "Return to the oven for 10–12 minutes, brushing with more sauce halfway through, until caramelised and cooked through.",
+        "Sprinkle with sesame seeds and spring onion.",
+        "Serve with steamed rice and stir-fried pak choi."
+      ]
+    },
+    {
+      "name": "Salmon and Sweet Potato Tray Bake",
+      "servings": 2,
+      "cook_time_min": 40,
+      "ingredients": [
+        "2 frozen salmon fillet portions (approx. 150 g each)",
+        "1 large sweet potato, peeled and cut into 2 cm cubes",
+        "1 red pepper, deseeded and cut into chunks",
+        "1 red onion, cut into wedges",
+        "2 tbsp olive oil",
+        "1 tsp smoked paprika",
+        "½ tsp garlic powder",
+        "Salt and freshly ground black pepper",
+        "Handful of fresh coriander, to serve",
+        "Lime wedges, to serve"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6).",
+        "Toss the sweet potato, red pepper, and red onion with olive oil, smoked paprika, garlic powder, salt, and pepper on a large baking tray.",
+        "Roast the vegetables for 15 minutes.",
+        "Nestle the frozen salmon fillets among the vegetables. Season the salmon with salt and pepper.",
+        "Return to the oven for 22–25 minutes until the salmon is cooked through and the vegetables are tender and caramelised at the edges.",
+        "Scatter with fresh coriander and serve with lime wedges."
+      ]
+    },
+    {
+      "name": "Salmon Pasta Bake",
+      "servings": 4,
+      "cook_time_min": 45,
+      "ingredients": [
+        "300 g frozen salmon fillet",
+        "300 g penne pasta",
+        "30 g butter",
+        "30 g plain flour",
+        "500 ml whole milk",
+        "100 g mature cheddar, grated",
+        "2 tbsp cream cheese",
+        "100 g frozen peas",
+        "1 tsp Dijon mustard",
+        "Salt and freshly ground black pepper",
+        "2 tbsp panko breadcrumbs"
+      ],
+      "steps": [
+        "Preheat the oven to 200 °C (180 °C fan / gas 6).",
+        "Poach the frozen salmon in simmering water for 12 minutes. Drain, flake into large chunks, and set aside.",
+        "Cook the penne in boiling salted water according to packet instructions. Add the frozen peas in the last 2 minutes. Drain.",
+        "In a large saucepan, melt butter over medium heat. Add flour and stir for 1 minute. Gradually whisk in milk until smooth. Cook for 3–4 minutes until the sauce thickens.",
+        "Remove from heat. Stir in half the cheddar, the cream cheese, and mustard. Season with salt and pepper.",
+        "Fold in the cooked pasta, peas, and flaked salmon. Pour into a large ovenproof dish.",
+        "Top with remaining cheddar and panko breadcrumbs.",
+        "Bake for 18–20 minutes until golden and bubbling. Let stand for 5 minutes before serving."
+      ]
+    }
+  ]
+}
