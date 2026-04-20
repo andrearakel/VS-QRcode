@@ -53,11 +53,11 @@ export default function ProductLanding({ product }) {
     max={100}
     label="Sustainability"
   />
-  <ScoreGauge
-    value={topLayer.purity_score}
-    max={100}
-    label="Purity"
-  />
+<ScoreGauge
+  value={topLayer.purity_score}
+  max={100}
+  label="Purity"
+/>
   <ScoreGauge
     value={product.saga.days_from_catch_to_shelf}
     max={20}
@@ -98,7 +98,7 @@ export default function ProductLanding({ product }) {
         <CategoryCard
           icon="🥗"
           title="Nutrition"
-          subtitle={`${naeringarefni.per_100g.protein_g}g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg}mg Omega-3`}
+          subtitle={`${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg} mg Omega-3`}
           onClick={() => handleCategoryClick('naeringarefni')}
         />
 
@@ -407,7 +407,7 @@ function HreinleikiDetail({ hreinleiki }) {
         <StatusBox label="Antibiotics" passed={!hreinleiki.antibiotics_used} />
         <StatusBox label="Hormones" passed={!hreinleiki.hormones_used} />
         <StatusBox label="Pesticides" passed={!hreinleiki.pesticides_detected} />
-        <StatusBox label="Microplastics" passed={hreinleiki.microplastics_result === 'Below detection limit'} />
+        <StatusBox label="Microplastics" passed={hreinleiki.microplastics_result === 'Not detected'} />
       </div>
 
       {/* Heavy metals detail */}

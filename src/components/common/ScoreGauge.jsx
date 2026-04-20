@@ -1,6 +1,6 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
 
-export default function ScoreGauge({ value, max = 100, label, color, size = 90 }) {
+export default function ScoreGauge({ value, max = 100, label, color, size = 90, text }) {
   const data = [{ value, fill: color || getColor(value, max) }];
 
   function getColor(val, max) {
@@ -38,8 +38,8 @@ export default function ScoreGauge({ value, max = 100, label, color, size = 90 }
         </RadialBarChart>
         {/* Center number */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-bold text-gray-900" style={{ fontSize: size * 0.22 }}>
-            {value}
+          <span className="font-bold text-gray-900" style={{ fontSize: size * 0.20 }}>
+            {text || value}
           </span>
         </div>
       </div>
