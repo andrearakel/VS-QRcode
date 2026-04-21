@@ -6,7 +6,7 @@ import ScoreGauge from '../common/ScoreGauge';
 import { Link } from 'react-router-dom';
 
 export default function ProductLanding({ product }) {
-  const { topLayer, sotspor, naeringarefni, hreinleiki } = product;
+  const { topLayer, sotspor, naeringarefni } = product;
   const [activeCategory, setActiveCategory] = useState(null);
   const { trackLanding, trackCategoryOpen, trackDetailView } = useAnalytics(product.id);
 
@@ -17,12 +17,6 @@ export default function ProductLanding({ product }) {
   const handleCategoryClick = (category) => {
     trackCategoryOpen(category);
     setActiveCategory(activeCategory === category ? null : category);
-  };
-
-  const sustainabilityColor = (score) => {
-    if (score >= 85) return 'text-green-600';
-    if (score >= 70) return 'text-yellow-600';
-    return 'text-red-600';
   };
 
   return (
@@ -47,24 +41,19 @@ export default function ProductLanding({ product }) {
           </p>
 
           {/* Score Gauges */}
-<div className="flex justify-around items-start mt-5">
-  <ScoreGauge
-    value={topLayer.sustainability_score}
-    max={100}
-    label="Sustainability"
-  />
-<ScoreGauge
-  value={topLayer.purity_score}
-  max={100}
-  label="Purity"
-/>
-  <ScoreGauge
-    value={product.saga.days_from_catch_to_shelf}
-    max={20}
-    label="Days to Shelf"
-    color="#2563eb"
-  />
-</div>
+          <div className="flex justify-around items-start mt-5">
+            <ScoreGauge
+              value={topLayer.sustainability_score}
+              max={100}
+              label="Sustainability"
+            />
+            <ScoreGauge
+              value={product.saga.days_from_catch_to_shelf}
+              max={20}
+              label="Days to Shelf"
+              color="#2563eb"
+            />
+          </div>
 
           {/* Badges */}
           <div className="flex flex-wrap gap-2 mt-4">
@@ -103,13 +92,6 @@ export default function ProductLanding({ product }) {
         />
 
         <CategoryCard
-          icon="🔬"
-          title="Purity"
-          subtitle={hreinleiki.all_eu_limits_passed ? '✅ All EU limits passed' : '⚠️ Review results'}
-          onClick={() => handleCategoryClick('hreinleiki')}
-        />
-
-        <CategoryCard
           icon="📦"
           title="More Info"
           subtitle={`${product.extra.storage_instructions.split('.')[0]}`}
@@ -131,13 +113,11 @@ export default function ProductLanding({ product }) {
 }
 
 function CategoryDetail({ category, product, onClose, trackDetailView }) {
-  // Lock body scroll when open
   useEffect(() => {
     document.body.classList.add('modal-open');
     return () => document.body.classList.remove('modal-open');
   }, []);
 
-  // Close on Escape key
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -162,11 +142,7 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
       title = '🥗 Nutrition';
       content = <NaeringarefniDetail naeringarefni={product.naeringarefni} />;
       break;
-    case 'hreinleiki':
-      title = '🔬 Purity';
-      content = <HreinleikiDetail hreinleiki={product.hreinleiki} />;
-      break;
-        case 'extra':
+    case 'extra':
       title = 'ℹ️ More Info';
       content = (
         <ExtraDetail
@@ -189,17 +165,14 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      {/* Bottom sheet */}
       <div
         className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl animate-slide-up"
         style={{ maxHeight: '85vh' }}
       >
-        {/* Drag handle */}
         <div className="flex justify-center pt-3 pb-1">
           <div className="w-10 h-1 bg-gray-300 rounded-full" />
         </div>
 
-        {/* Header */}
         <div className="flex items-center justify-between px-4 pb-3 border-b border-gray-100">
           <h2 className="text-lg font-bold text-gray-900">{title}</h2>
           <button
@@ -213,7 +186,6 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
           </button>
         </div>
 
-        {/* Scrollable content */}
         <div className="overflow-y-auto px-4 pt-4 pb-8" style={{ maxHeight: 'calc(85vh - 80px)' }}>
           {content}
         </div>
@@ -229,7 +201,6 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
 function SagaDetail({ saga }) {
   return (
     <div className="space-y-6">
-      {/* Quick Facts */}
       <div className="grid grid-cols-2 gap-3">
         <InfoBox label="Catch Area" value={saga.catch_area} />
         <InfoBox label="Method" value={saga.catch_method} />
@@ -237,7 +208,6 @@ function SagaDetail({ saga }) {
         <InfoBox label="Landed" value={saga.landing_port} />
       </div>
 
-      {/* Timeline */}
       <div>
         <h3 className="font-semibold text-gray-900 mb-3">Journey</h3>
         <div className="space-y-0">
@@ -259,7 +229,6 @@ function SagaDetail({ saga }) {
         </div>
       </div>
 
-      {/* Processing */}
       <div className="bg-blue-50 rounded-xl p-4">
         <h3 className="font-semibold text-blue-900 mb-1">Processing</h3>
         <p className="text-sm text-blue-800">{saga.processing_method}</p>
@@ -270,10 +239,50 @@ function SagaDetail({ saga }) {
 }
 
 function SotsporDetail({ sotspor }) {
-  const maxCarbon = Math.max(
-    sotspor.carbon_kg_co2_per_kg,
-    sotspor.comparison.beef_carbon
-  );
+  const comparison = sotspor.comparison;
+
+  // Build comparison items dynamically based on what data exists
+  const comparisonItems = [
+    {
+      label: "This product",
+      value: sotspor.carbon_kg_co2_per_kg,
+      color: "bg-green-500",
+    },
+  ];
+
+  // Fish category average (whitefish or farmed salmon)
+  if (comparison.category_avg_whitefish_carbon) {
+    comparisonItems.push({
+      label: "Avg. whitefish",
+      value: comparison.category_avg_whitefish_carbon,
+      color: "bg-blue-400",
+    });
+  }
+  if (comparison.category_avg_farmed_salmon_carbon) {
+    comparisonItems.push({
+      label: "Avg. farmed salmon",
+      value: comparison.category_avg_farmed_salmon_carbon,
+      color: "bg-blue-400",
+    });
+  }
+
+  // Chicken and beef
+  if (comparison.chicken_carbon) {
+    comparisonItems.push({
+      label: "Chicken (avg)",
+      value: comparison.chicken_carbon,
+      color: "bg-yellow-400",
+    });
+  }
+  if (comparison.beef_carbon) {
+    comparisonItems.push({
+      label: "Beef (avg)",
+      value: comparison.beef_carbon,
+      color: "bg-red-400",
+    });
+  }
+
+  const maxCarbon = Math.max(...comparisonItems.map((item) => item.value));
 
   return (
     <div className="space-y-6">
@@ -287,33 +296,21 @@ function SotsporDetail({ sotspor }) {
 
       {/* Comparison bars */}
       <div>
-        <h3 className="font-semibold text-gray-900 mb-3">Compared to</h3>
+        <h3 className="font-semibold text-gray-900 mb-3">Carbon footprint comparison</h3>
         <div className="space-y-3">
-          <ComparisonRow
-            label="This product"
-            value={sotspor.carbon_kg_co2_per_kg}
-            max={maxCarbon}
-            color="bg-green-500"
-          />
-          <ComparisonRow
-            label="Avg whitefish"
-            value={sotspor.comparison.category_avg_whitefish_carbon}
-            max={maxCarbon}
-            color="bg-blue-400"
-          />
-          <ComparisonRow
-            label="Chicken"
-            value={sotspor.comparison.chicken_carbon}
-            max={maxCarbon}
-            color="bg-yellow-400"
-          />
-          <ComparisonRow
-            label="Beef"
-            value={sotspor.comparison.beef_carbon}
-            max={maxCarbon}
-            color="bg-red-400"
-          />
+          {comparisonItems.map((item) => (
+            <ComparisonRow
+              key={item.label}
+              label={item.label}
+              value={item.value}
+              max={maxCarbon}
+              color={item.color}
+            />
+          ))}
         </div>
+        <p className="text-xs text-gray-400 mt-3">
+          Chicken & beef are global averages (Our World in Data)
+        </p>
       </div>
 
       {/* Breakdown */}
@@ -391,61 +388,6 @@ function NaeringarefniDetail({ naeringarefni }) {
   );
 }
 
-function HreinleikiDetail({ hreinleiki }) {
-  const hm = hreinleiki.heavy_metals;
-
-  return (
-    <div className="space-y-6">
-      {/* Overall status */}
-      <div className={`text-center rounded-xl p-5 ${hreinleiki.all_eu_limits_passed ? 'bg-green-50' : 'bg-red-50'}`}>
-        <div className="text-4xl mb-2">
-          {hreinleiki.all_eu_limits_passed ? '✅' : '⚠️'}
-        </div>
-        <div className={`font-bold ${hreinleiki.all_eu_limits_passed ? 'text-green-700' : 'text-red-700'}`}>
-          {hreinleiki.all_eu_limits_passed ? 'All EU Limits Passed' : 'Review Required'}
-        </div>
-        <div className="text-sm text-gray-500 mt-1">
-          Tested by {hreinleiki.testing_lab} · {hreinleiki.testing_date}
-        </div>
-      </div>
-
-      {/* Quick checks */}
-      <div className="grid grid-cols-2 gap-3">
-        <StatusBox label="Antibiotics" passed={!hreinleiki.antibiotics_used} />
-        <StatusBox label="Hormones" passed={!hreinleiki.hormones_used} />
-        <StatusBox label="Pesticides" passed={!hreinleiki.pesticides_detected} />
-        <StatusBox label="Microplastics" passed={hreinleiki.microplastics_result === 'Not detected'} />
-      </div>
-
-      {/* Heavy metals detail */}
-      <div>
-        <h3 className="font-semibold text-gray-900 mb-3">Heavy Metals</h3>
-        <div className="space-y-3">
-          <MetalBar label="Mercury" value={hm.mercury_mg_kg} limit={hm.mercury_eu_limit} />
-          <MetalBar label="Cadmium" value={hm.cadmium_mg_kg} limit={hm.cadmium_eu_limit} />
-          <MetalBar label="Lead" value={hm.lead_mg_kg} limit={hm.lead_eu_limit} />
-        </div>
-      </div>
-
-      {/* Contaminants */}
-      <div>
-        <h3 className="font-semibold text-gray-900 mb-3">Contaminants</h3>
-        <div className="grid grid-cols-2 gap-3">
-          <InfoBox label="PCBs" value={`${hreinleiki.contaminants.pcbs_pg_g} pg/g`} />
-          <InfoBox label="Dioxins" value={`${hreinleiki.contaminants.dioxins_pg_g} / ${hreinleiki.contaminants.dioxins_eu_limit_pg_g} pg/g`} />
-        </div>
-      </div>
-
-      {/* Water quality */}
-      <div className="bg-blue-50 rounded-xl p-4">
-        <h3 className="font-semibold text-blue-900 mb-2">Water Quality</h3>
-        <p className="text-sm text-blue-800">{hreinleiki.water_quality.source}</p>
-        <p className="text-sm text-blue-700">{hreinleiki.water_quality.temperature_c}°C · {hreinleiki.water_quality.classification}</p>
-      </div>
-    </div>
-  );
-}
-
 function ExtraDetail({ extra, productId, onRecipeClick }) {
   return (
     <div className="space-y-6">
@@ -496,17 +438,6 @@ function InfoBox({ label, value }) {
   );
 }
 
-function StatusBox({ label, passed }) {
-  return (
-    <div className={`rounded-lg p-3 text-center ${passed ? 'bg-green-50' : 'bg-red-50'}`}>
-      <div className="text-lg">{passed ? '✅' : '❌'}</div>
-      <div className={`text-xs font-medium mt-1 ${passed ? 'text-green-700' : 'text-red-700'}`}>
-        {passed ? `No ${label}` : `${label} detected`}
-      </div>
-    </div>
-  );
-}
-
 function ComparisonRow({ label, value, max, color }) {
   const width = (value / max) * 100;
 
@@ -535,30 +466,6 @@ function NutritionRow({ label, value, bold, indent, highlight }) {
         {label}
       </span>
       <span className="text-sm text-gray-900">{value}</span>
-    </div>
-  );
-}
-
-function MetalBar({ label, value, limit }) {
-  const percentage = (value / limit) * 100;
-
-  return (
-    <div className="bg-gray-50 rounded-lg p-3">
-      <div className="flex justify-between text-sm mb-2">
-        <span className="font-medium text-gray-700">{label}</span>
-        <span className="text-gray-500">
-          {value} / {limit} mg/kg
-        </span>
-      </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className={`h-full rounded-full ${percentage < 30 ? 'bg-green-500' : percentage < 70 ? 'bg-yellow-500' : 'bg-red-500'}`}
-          style={{ width: `${Math.min(percentage, 100)}%` }}
-        />
-      </div>
-      <div className="text-xs text-gray-400 mt-1">
-        {percentage.toFixed(1)}% of EU limit
-      </div>
     </div>
   );
 }
