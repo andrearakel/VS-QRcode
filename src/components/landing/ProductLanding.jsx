@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function ProductLanding({ product }) {
   const { topLayer, sotspor, naeringarefni, hreinleiki } = product;
   const [activeCategory, setActiveCategory] = useState(null);
-  const { trackLanding, trackCategoryOpen } = useAnalytics(product.id);
+  const { trackLanding, trackCategoryOpen, trackDetailView } = useAnalytics(product.id);
 
   useEffect(() => {
     trackLanding();
@@ -123,13 +123,14 @@ export default function ProductLanding({ product }) {
           category={activeCategory}
           product={product}
           onClose={() => setActiveCategory(null)}
+          trackDetailView={trackDetailView}
         />
       )}
     </div>
   );
 }
 
-function CategoryDetail({ category, product, onClose }) {
+function CategoryDetail({ category, product, onClose, trackDetailView }) {
   // Lock body scroll when open
   useEffect(() => {
     document.body.classList.add('modal-open');
@@ -165,9 +166,15 @@ function CategoryDetail({ category, product, onClose }) {
       title = '🔬 Purity';
       content = <HreinleikiDetail hreinleiki={product.hreinleiki} />;
       break;
-    case 'extra':
+        case 'extra':
       title = 'ℹ️ More Info';
-      content = <ExtraDetail extra={product.extra} productId={product.id} />;
+      content = (
+        <ExtraDetail
+          extra={product.extra}
+          productId={product.id}
+          onRecipeClick={() => trackDetailView('recipe')}
+        />
+      );
       break;
     default:
       title = 'Details';
@@ -439,7 +446,7 @@ function HreinleikiDetail({ hreinleiki }) {
   );
 }
 
-function ExtraDetail({ extra, productId }) {
+function ExtraDetail({ extra, productId, onRecipeClick }) {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-3">
@@ -451,7 +458,7 @@ function ExtraDetail({ extra, productId }) {
         <InfoBox label="Allergens" value={extra.allergens.join(', ')} />
       </div>
 
-{extra.recipes && extra.recipes.length > 0 && (
+      {extra.recipes && extra.recipes.length > 0 && (
         <div>
           <h3 className="font-semibold text-gray-900 mb-3">Recipes</h3>
           <div className="space-y-2">
@@ -459,6 +466,7 @@ function ExtraDetail({ extra, productId }) {
               <Link
                 to={`/product/${productId}/recipe/${index}`}
                 key={recipe.name}
+                onClick={() => onRecipeClick && onRecipeClick()}
                 className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors cursor-pointer"
               >
                 <span className="text-2xl">👨‍🍳</span>
