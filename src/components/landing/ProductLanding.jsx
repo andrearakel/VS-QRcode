@@ -77,18 +77,18 @@ export default function ProductLanding({ product }) {
           onClick={() => handleCategoryClick('saga')}
         />
 
+                <CategoryCard
+          icon="🥗"
+          title="Nutrition"
+          subtitle={`${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg} mg Omega-3`}
+          onClick={() => handleCategoryClick('naeringarefni')}
+        />
+
         <CategoryCard
           icon="🌍"
           title="Footprint"
           subtitle={`${sotspor.carbon_kg_co2_per_kg} kg CO₂/kg · ${sotspor.transport_km} km`}
           onClick={() => handleCategoryClick('sotspor')}
-        />
-
-        <CategoryCard
-          icon="🥗"
-          title="Nutrition"
-          subtitle={`${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg} mg Omega-3`}
-          onClick={() => handleCategoryClick('naeringarefni')}
         />
 
         <CategoryCard
