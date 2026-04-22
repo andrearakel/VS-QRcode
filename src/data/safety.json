@@ -1,0 +1,44 @@
+{
+  "microbiological_criteria": [
+    {
+      "parameter": "TVC @ 30°C / 48hrs",
+      "acceptable_limit": "< 10⁵",
+      "max_tolerance": "> 10⁶",
+      "unit": "CFU/g"
+    },
+    {
+      "parameter": "Coliforms",
+      "acceptable_limit": "< 10³",
+      "max_tolerance": "> 5 × 10³",
+      "unit": "CFU/g"
+    },
+    {
+      "parameter": "E. coli",
+      "acceptable_limit": "< 10",
+      "max_tolerance": "> 100",
+      "unit": "CFU/g"
+    },
+    {
+      "parameter": "Staph. aureus",
+      "acceptable_limit": "< 20",
+      "max_tolerance": "> 100",
+      "unit": "CFU/g"
+    },
+    {
+      "parameter": "Salmonella spp. in 25g",
+      "acceptable_limit": "Absent",
+      "max_tolerance": "Present",
+      "unit": ""
+    }
+  ],
+  "chemical_criteria": [
+    {
+      "parameter": "TMA / TVBN",
+      "acceptable_limit": "< 40",
+      "max_tolerance": "> 50",
+      "unit": "%"
+    }
+  ],
+  "testing_note": "Microbiological and chemical testing is performed for every production batch. All test records are stored and available for audit.",
+  "regulatory_basis": "Criteria based on EU Regulation (EC) No 2073/2005 and company HACCP standards."
+}

@@ -3,6 +3,7 @@ import CategoryCard from '../layout/CategoryCard';
 import Badge from '../common/Badge';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { Link } from 'react-router-dom';
+import safetyData from '../../data/safety.json';
 
 /* ============================================
    CERTIFICATION LOGO MAP
@@ -111,6 +112,13 @@ export default function ProductLanding({ product }) {
           title="Footprint"
           subtitle={`${sotspor.carbon_kg_co2_per_kg} kg CO₂/kg · ${sotspor.transport_km} km`}
           onClick={() => handleCategoryClick('sotspor')}
+        />
+
+        <CategoryCard
+          icon="🛡️"
+          title="Safety"
+          subtitle="Standards & testing criteria"
+          onClick={() => handleCategoryClick('safety')}
         />
 
         <CategoryCard
@@ -228,6 +236,12 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
       title = '🥗 Nutrition';
       content = <NaeringarefniDetail naeringarefni={product.naeringarefni} product={product} />;
       break;
+
+    case 'safety':
+      title = '🛡️ Safety';
+      content = <SafetyDetail safety={safetyData} />;
+      break;    
+
     case 'extra':
       title = 'ℹ️ More Info';
       content = (
@@ -482,6 +496,92 @@ function NaeringarefniDetail({ naeringarefni, product }) {
           <InfoBox label="Potassium" value={`${v.potassium_mg} mg`} />
         </div>
       </div>
+    </div>
+  );
+}
+
+function SafetyDetail({ safety }) {
+  if (!safety) return null;
+
+  return (
+    <div className="space-y-6">
+      {/* Microbiological Criteria */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-900 mb-3">🔬 Microbiological Criteria</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-2 pr-2 text-gray-500 font-medium text-xs">Parameter</th>
+                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">Acceptable</th>
+                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">Max tolerance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {safety.microbiological_criteria.map((item, i) => (
+                <tr key={i} className="border-b border-gray-50">
+                  <td className="py-2.5 pr-2 text-gray-800 font-medium text-xs leading-tight">
+                    {item.parameter}
+                  </td>
+                  <td className="py-2.5 px-2 text-right text-xs whitespace-nowrap">
+                    <span className="text-green-700 font-semibold">{item.acceptable_limit}</span>
+                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                  </td>
+                  <td className="py-2.5 pl-2 text-right text-xs whitespace-nowrap">
+                    <span className="text-red-600 font-semibold">{item.max_tolerance}</span>
+                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Chemical Criteria */}
+      <div>
+        <h3 className="text-sm font-bold text-gray-900 mb-3">⚗️ Chemical Criteria</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-2 pr-2 text-gray-500 font-medium text-xs">Parameter</th>
+                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">Acceptable</th>
+                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">Max tolerance</th>
+              </tr>
+            </thead>
+            <tbody>
+              {safety.chemical_criteria.map((item, i) => (
+                <tr key={i} className="border-b border-gray-50">
+                  <td className="py-2.5 pr-2 text-gray-800 font-medium text-xs leading-tight">
+                    {item.parameter}
+                  </td>
+                  <td className="py-2.5 px-2 text-right text-xs whitespace-nowrap">
+                    <span className="text-green-700 font-semibold">{item.acceptable_limit}</span>
+                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                  </td>
+                  <td className="py-2.5 pl-2 text-right text-xs whitespace-nowrap">
+                    <span className="text-red-600 font-semibold">{item.max_tolerance}</span>
+                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Testing Note */}
+      <div className="bg-blue-50 rounded-xl p-4">
+        <p className="text-xs text-blue-800 font-medium leading-relaxed">
+          📋 {safety.testing_note}
+        </p>
+      </div>
+
+      {/* Regulatory Basis */}
+      <p className="text-[11px] text-gray-400 leading-relaxed">
+        {safety.regulatory_basis}
+      </p>
     </div>
   );
 }
