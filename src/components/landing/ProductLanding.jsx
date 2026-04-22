@@ -2,8 +2,28 @@ import React, { useState, useEffect } from 'react';
 import CategoryCard from '../layout/CategoryCard';
 import Badge from '../common/Badge';
 import { useAnalytics } from '../../hooks/useAnalytics';
-import ScoreGauge from '../common/ScoreGauge';
 import { Link } from 'react-router-dom';
+
+/* ============================================
+   CERTIFICATION LOGO MAP
+   ============================================ */
+const CERT_LOGOS = {
+  msc: {
+    src: '/images/certs/msc.png',
+    alt: 'MSC Certified — Sustainable wild-caught fishery',
+    label: 'MSC',
+  },
+  asc: {
+    src: '/images/certs/asc.jpg',
+    alt: 'ASC Certified — Responsible aquaculture',
+    label: 'ASC',
+  },
+  keyhole: {
+    src: '/images/certs/keyhole.png',
+    alt: 'Nordic Keyhole — Healthier choice',
+    label: 'Keyhole',
+  },
+};
 
 export default function ProductLanding({ product }) {
   const { topLayer, sotspor, naeringarefni } = product;
@@ -26,41 +46,43 @@ export default function ProductLanding({ product }) {
         <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center">
           <div className="text-center text-white">
             <div className="text-6xl mb-2">🐟</div>
-            <p className="text-blue-200 text-sm">{product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} · {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}</p>
+            <p className="text-blue-200 text-sm">
+              {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} ·{' '}
+              {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}
+            </p>
           </div>
         </div>
 
         <div className="p-5">
           <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
           <p className="text-gray-500 mt-1">
-            {product.species.common_name} · {topLayer.origin_short}
+            {product.species.common_name} · {product.producer?.name || topLayer.origin_short}
           </p>
           <p className="text-gray-400 text-sm mt-1">
             <span className="italic">{product.species.scientific_name}</span>
-            {' · '}{topLayer.catch_method}
+            {' · '}
+            {topLayer.catch_method}
           </p>
 
-          {/* Score Gauges */}
-          <div className="flex justify-around items-start mt-5">
-            <ScoreGauge
-              value={topLayer.sustainability_score}
-              max={100}
-              label="Sustainability"
-            />
-            <ScoreGauge
-              value={product.saga.days_from_catch_to_shelf}
-              max={20}
-              label="Days to Shelf"
-              color="#2563eb"
-            />
-          </div>
+   {/* Certifications + Days to Shelf */}
+<div className="mt-5 flex items-center justify-center gap-4">
+  {/* Certification Logos */}
+  <CertificationBadges certifications={product.certifications} />
 
-          {/* Badges */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {topLayer.certifications.map((cert) => (
-              <Badge key={cert} type={cert} />
-            ))}
-          </div>
+  {/* Days from catch to shelf */}
+  {product.saga?.days_from_catch_to_shelf != null && (
+    <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
+      <span className="text-3xl font-bold text-blue-700 leading-none">
+        {product.saga.days_from_catch_to_shelf}
+      </span>
+      <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
+        days catch
+        <br />
+        to shelf
+      </span>
+    </div>
+  )}
+</div>
         </div>
       </div>
 
@@ -77,7 +99,7 @@ export default function ProductLanding({ product }) {
           onClick={() => handleCategoryClick('saga')}
         />
 
-                <CategoryCard
+        <CategoryCard
           icon="🥗"
           title="Nutrition"
           subtitle={`${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg} mg Omega-3`}
@@ -112,6 +134,70 @@ export default function ProductLanding({ product }) {
   );
 }
 
+/* ============================================
+   CERTIFICATION BADGES COMPONENT
+   ============================================ */
+
+function CertificationBadges({ certifications }) {
+  if (!certifications || certifications.length === 0) return null;
+
+  const [activeTip, setActiveTip] = useState(null);
+
+  const handleTap = (certId) => {
+    setActiveTip(activeTip === certId ? null : certId);
+  };
+
+  return (
+    <div className="flex items-center gap-4">
+      {certifications.map((cert) => {
+        const logo = CERT_LOGOS[cert.id];
+        if (!logo) return null;
+
+        const isActive = activeTip === cert.id;
+
+        return (
+          <div key={cert.id} className="relative flex flex-col items-center">
+            <button
+              onClick={() => handleTap(cert.id)}
+              className="flex items-center justify-center w-[90px] h-[90px] bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md active:bg-gray-50 transition-all focus:outline-none"
+              aria-label={logo.alt}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="h-14 w-auto object-contain"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling?.classList.remove('hidden');
+                }}
+              />
+              <span className="hidden bg-gray-200 text-gray-700 text-[10px] font-bold px-2 py-1 rounded">
+                {logo.label}
+              </span>
+            </button>
+
+            {/* Tooltip */}
+            {isActive && (
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-20
+                            bg-gray-900 text-white text-xs rounded-lg px-3 py-2
+                            whitespace-nowrap shadow-lg animate-fade-in">
+                <div className="font-semibold">{cert.name}</div>
+                <div className="text-gray-300 mt-0.5">{cert.description}</div>
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2
+                              w-2 h-2 bg-gray-900 rotate-45" />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ============================================
+   CATEGORY DETAIL MODAL
+   ============================================ */
+
 function CategoryDetail({ category, product, onClose, trackDetailView }) {
   useEffect(() => {
     document.body.classList.add('modal-open');
@@ -140,7 +226,7 @@ function CategoryDetail({ category, product, onClose, trackDetailView }) {
       break;
     case 'naeringarefni':
       title = '🥗 Nutrition';
-      content = <NaeringarefniDetail naeringarefni={product.naeringarefni} />;
+      content = <NaeringarefniDetail naeringarefni={product.naeringarefni} product={product} />;
       break;
     case 'extra':
       title = 'ℹ️ More Info';
@@ -222,7 +308,9 @@ function SagaDetail({ saga }) {
               <div className="pb-4">
                 <p className="font-medium text-gray-900">{step.step}</p>
                 <p className="text-sm text-gray-500">{step.location}</p>
-                <p className="text-xs text-gray-400">{step.date} · {step.detail}</p>
+                <p className="text-xs text-gray-400">
+                  {step.date} · {step.detail}
+                </p>
               </div>
             </div>
           ))}
@@ -241,44 +329,41 @@ function SagaDetail({ saga }) {
 function SotsporDetail({ sotspor }) {
   const comparison = sotspor.comparison;
 
-  // Build comparison items dynamically based on what data exists
   const comparisonItems = [
     {
-      label: "This product",
+      label: 'This product',
       value: sotspor.carbon_kg_co2_per_kg,
-      color: "bg-green-500",
+      color: 'bg-green-500',
     },
   ];
 
-  // Fish category average (whitefish or farmed salmon)
   if (comparison.category_avg_whitefish_carbon) {
     comparisonItems.push({
-      label: "Avg. whitefish",
+      label: 'Avg. whitefish',
       value: comparison.category_avg_whitefish_carbon,
-      color: "bg-blue-400",
+      color: 'bg-blue-400',
     });
   }
   if (comparison.category_avg_farmed_salmon_carbon) {
     comparisonItems.push({
-      label: "Avg. farmed salmon",
+      label: 'Avg. farmed salmon',
       value: comparison.category_avg_farmed_salmon_carbon,
-      color: "bg-blue-400",
+      color: 'bg-blue-400',
     });
   }
 
-  // Chicken and beef
   if (comparison.chicken_carbon) {
     comparisonItems.push({
-      label: "Chicken (avg)",
+      label: 'Chicken (avg)',
       value: comparison.chicken_carbon,
-      color: "bg-yellow-400",
+      color: 'bg-yellow-400',
     });
   }
   if (comparison.beef_carbon) {
     comparisonItems.push({
-      label: "Beef (avg)",
+      label: 'Beef (avg)',
       value: comparison.beef_carbon,
-      color: "bg-red-400",
+      color: 'bg-red-400',
     });
   }
 
@@ -286,15 +371,11 @@ function SotsporDetail({ sotspor }) {
 
   return (
     <div className="space-y-6">
-      {/* Main carbon number */}
       <div className="text-center bg-green-50 rounded-xl p-5">
-        <div className="text-4xl font-bold text-green-700">
-          {sotspor.carbon_kg_co2_per_kg}
-        </div>
+        <div className="text-4xl font-bold text-green-700">{sotspor.carbon_kg_co2_per_kg}</div>
         <div className="text-sm text-green-600 mt-1">kg CO₂ per kg of product</div>
       </div>
 
-      {/* Comparison bars */}
       <div>
         <h3 className="font-semibold text-gray-900 mb-3">Carbon footprint comparison</h3>
         <div className="space-y-3">
@@ -313,7 +394,6 @@ function SotsporDetail({ sotspor }) {
         </p>
       </div>
 
-      {/* Breakdown */}
       <div>
         <h3 className="font-semibold text-gray-900 mb-3">Breakdown</h3>
         <div className="grid grid-cols-2 gap-3">
@@ -324,11 +404,13 @@ function SotsporDetail({ sotspor }) {
           <InfoBox label="Cold chain" value={`${sotspor.cold_chain_energy_kwh_per_kg} kWh/kg`} />
           <InfoBox label="Water use" value={`${sotspor.water_liters_per_kg} L/kg`} />
           <InfoBox label="Waste" value={`${sotspor.waste_percentage}%`} />
-          <InfoBox label="Packaging" value={sotspor.packaging_recyclable ? '♻️ Recyclable' : 'Not recyclable'} />
+          <InfoBox
+            label="Packaging"
+            value={sotspor.packaging_recyclable ? '♻️ Recyclable' : 'Not recyclable'}
+          />
         </div>
       </div>
 
-      {/* Note */}
       {sotspor.notes && (
         <div className="bg-gray-50 rounded-xl p-4">
           <p className="text-sm text-gray-600">{sotspor.notes}</p>
@@ -338,9 +420,13 @@ function SotsporDetail({ sotspor }) {
   );
 }
 
-function NaeringarefniDetail({ naeringarefni }) {
+function NaeringarefniDetail({ naeringarefni, product }) {
   const n = naeringarefni.per_100g;
   const v = naeringarefni.vitamins_minerals;
+
+  const commonName = product?.species?.common_name || '';
+  const scientificName = product?.species?.scientific_name || '';
+  const hasAllergens = product?.extra?.allergens?.length > 0;
 
   return (
     <div className="space-y-6">
@@ -354,6 +440,18 @@ function NaeringarefniDetail({ naeringarefni }) {
             {h}
           </span>
         ))}
+      </div>
+
+      {/* Ingredients */}
+      <div className="pb-3 border-b border-gray-200">
+        <h3 className="font-semibold text-gray-900 mb-1">Ingredients</h3>
+        <p className="text-gray-700">
+          {hasAllergens ? <strong className="font-bold">{commonName}</strong> : commonName}
+          {scientificName && <span> ({scientificName})</span>}
+        </p>
+        {hasAllergens && (
+          <p className="text-xs text-gray-500 mt-1">*Allergens are highlighted in bold</p>
+        )}
       </div>
 
       {/* Nutrition table */}
@@ -412,9 +510,7 @@ function ExtraDetail({ extra, productId, onRecipeClick }) {
                 className="flex items-center gap-3 p-3 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors cursor-pointer"
               >
                 <span className="text-2xl">👨‍🍳</span>
-                <span className="text-sm font-medium text-orange-900 flex-1">
-                  {recipe.name}
-                </span>
+                <span className="text-sm font-medium text-orange-900 flex-1">{recipe.name}</span>
                 <span className="text-orange-400 text-lg">›</span>
               </Link>
             ))}
@@ -462,9 +558,7 @@ function NutritionRow({ label, value, bold, indent, highlight }) {
     <div
       className={`flex justify-between px-4 py-2 border-b border-gray-50 ${bold ? 'font-semibold' : ''} ${highlight ? 'bg-blue-50' : ''}`}
     >
-      <span className={`text-sm ${indent ? 'text-gray-500 pl-3' : 'text-gray-700'}`}>
-        {label}
-      </span>
+      <span className={`text-sm ${indent ? 'text-gray-500 pl-3' : 'text-gray-700'}`}>{label}</span>
       <span className="text-sm text-gray-900">{value}</span>
     </div>
   );

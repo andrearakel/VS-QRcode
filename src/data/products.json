@@ -9,12 +9,26 @@
         "common_name": "Atlantic Cod",
         "scientific_name": "Gadus morhua"
       },
+      "producer": {
+        "name": "Norðurland Seafood",
+        "location": "Grundarfjörður, Iceland"
+      },
+      "certifications": [
+  {
+    "id": "msc",
+    "name": "MSC Certified",
+    "description": "Certified sustainable wild-caught fishery by the Marine Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }],
       "topLayer": {
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
         "sustainability_score": 92,
-        "purity_score": 96,
-        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
+        "purity_score": 96
       },
       "saga": {
         "catch_date": "2026-04-08",
@@ -129,12 +143,26 @@
         "common_name": "Atlantic Cod",
         "scientific_name": "Gadus morhua"
       },
+      "producer": {
+        "name": "Norðurland Seafood",
+        "location": "Grundarfjörður, Iceland"
+      },
+        "certifications": [
+  {
+    "id": "msc",
+    "name": "MSC Certified",
+    "description": "Certified sustainable wild-caught fishery by the Marine Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }],
       "topLayer": {
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
         "sustainability_score": 93,
-        "purity_score": 96,
-        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
+        "purity_score": 96
       },
       "saga": {
         "catch_date": "2026-03-25",
@@ -249,12 +277,26 @@
         "common_name": "Haddock",
         "scientific_name": "Melanogrammus aeglefinus"
       },
+      "producer": {
+        "name": "Norðurland Seafood",
+        "location": "Grundarfjörður, Iceland"
+      },
+        "certifications": [
+  {
+    "id": "msc",
+    "name": "MSC Certified",
+    "description": "Certified sustainable wild-caught fishery by the Marine Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }],
       "topLayer": {
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
         "sustainability_score": 90,
-        "purity_score": 95,
-        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
+        "purity_score": 95
       },
       "saga": {
         "catch_date": "2026-04-09",
@@ -369,12 +411,26 @@
         "common_name": "Haddock",
         "scientific_name": "Melanogrammus aeglefinus"
       },
+      "producer":{
+        "name": "Norðurland Seafood",
+        "location": "Grundarfjörður, Iceland"
+      },
+        "certifications": [
+  {
+    "id": "msc",
+    "name": "MSC Certified",
+    "description": "Certified sustainable wild-caught fishery by the Marine Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }],
       "topLayer": {
         "origin_short": "Grundarfjörður, Iceland",
         "catch_method": "Longline",
         "sustainability_score": 91,
-        "purity_score": 95,
-        "certifications": ["MSC Certified", "Iceland Responsible Fisheries"]
+        "purity_score": 95
       },
       "saga": {
         "catch_date": "2026-03-20",
@@ -489,12 +545,27 @@
         "common_name": "Atlantic Salmon",
         "scientific_name": "Salmo salar"
       },
+      "producer": {
+        "name": "Vestfjarða Lax",
+        "location": "Bíldudalur, Iceland"
+      },
+      "certifications": [
+  {
+    "id": "asc",
+    "name": "ASC Certified",
+    "description": "Certified responsible aquaculture by the Aquaculture Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }
+],
       "topLayer": {
         "origin_short": "Bíldudalur, Iceland",
         "catch_method": "Farmed – Open Net Pen",
         "sustainability_score": 85,
-        "purity_score": 93,
-        "certifications": ["ASC Certified", "Iceland Responsible Aquaculture"]
+        "purity_score": 93
       },
       "saga": {
         "catch_date": "2026-04-10",
@@ -608,12 +679,26 @@
         "common_name": "Atlantic Salmon",
         "scientific_name": "Salmo salar"
       },
+      "producer": {
+        "name": "Vestfjarða Lax",
+        "location": "Bíldudalur, Iceland"
+      },
+      "certifications": [
+  {
+    "id": "asc",
+    "name": "ASC Certified",
+    "description": "Certified responsible aquaculture by the Aquaculture Stewardship Council."
+  },
+  {
+    "id": "keyhole",
+    "name": "Nordic Keyhole",
+    "description": "Meets Nordic criteria for healthier food choices — lower fat, sugar, and salt."
+  }],
       "topLayer": {
         "origin_short": "Bíldudalur, Iceland",
         "catch_method": "Farmed – Open Net Pen",
         "sustainability_score": 86,
-        "purity_score": 93,
-        "certifications": ["ASC Certified", "Iceland Responsible Aquaculture"]
+        "purity_score": 93
       },
       "saga": {
         "catch_date": "2026-03-18",
