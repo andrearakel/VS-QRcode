@@ -1,24 +1,23 @@
-import { createBrowserRouter } from 'react-router-dom';
-import ScanLanding from './pages/ScanLanding';
-import ProductPage from './pages/ProductPage';
-import RecipePage from './pages/RecipePage';
-import AdminPage from './pages/AdminPage';
+import { createBrowserRouter } from "react-router-dom";
+import ScanLanding from "./pages/ScanLanding";
+import ProductPage from "./pages/ProductPage";
+import RecipePage from "./pages/RecipePage";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <ScanLanding />,
   },
   {
-    path: '/product/:productId',
+    path: "/product/:productId",
     element: <ProductPage />,
   },
   {
-    path: '/product/:id/recipe/:index',
+    path: "/product/:id/recipe/:index",
     element: <RecipePage />,
   },
   {
-    path: '/admin',
-    element: <AdminPage />,
+    path: "/batch/:batchId",
+    element: <ProductPage />,
   },
 ]);
