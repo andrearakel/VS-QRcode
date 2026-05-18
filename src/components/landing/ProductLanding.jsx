@@ -91,62 +91,82 @@ export default function ProductLanding({ product, batch = null }) {
 
   return (
     <div className="max-w-md mx-auto bg-gray-50 min-h-screen">
-      {/* Hero Section */}
-      <div className="bg-white">
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center relative">
-          {/* Traced Badge */}
-          {isTraced && (
-            <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
-              <span>✓</span> Batch Verified
-            </div>
-          )}
-          
-          <div className="text-center text-white">
-            <div className="text-6xl mb-2">🐟</div>
-            <p className="text-blue-200 text-sm">
-              {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} ·{' '}
-              {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}
-            </p>
-          </div>
-        </div>
-
-        <div className="p-5">
-          <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
-          <p className="text-gray-500 mt-1">
-            {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
-          </p>
-          <p className="text-gray-400 text-sm mt-1">
-            <span className="italic">{product.species.scientific_name}</span>
-            {displayData.catchMethod && ` · ${displayData.catchMethod}`}
-          </p>
-
-          {/* Batch ID if traced */}
-          {isTraced && (
-            <div className="mt-3 inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-lg">
-              <span>📦</span>
-              <span>Batch: {batch.id}</span>
-            </div>
-          )}
-
-          {/* Certifications + Days to Shelf */}
-          <div className="mt-5 flex items-center justify-center gap-4">
-            <CertificationBadges certifications={product.certifications} />
-
-            {!isTraced && product.saga?.days_from_catch_to_shelf != null && (
-              <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
-                <span className="text-3xl font-bold text-blue-700 leading-none">
-                  {product.saga.days_from_catch_to_shelf}
-                </span>
-                <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
-                  days catch
-                  <br />
-                  to shelf
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
+{/* Hero Section */}
+<div className="bg-white">
+  <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center relative">
+    {/* Traced Badge - top left */}
+    {isTraced && (
+      <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+        <span>✓</span> Batch Verified
       </div>
+    )}
+
+    {/* Company Logo - top right */}
+    {isTraced && batch?.company_logo && (
+      <div className="absolute top-3 right-3 bg-white rounded-lg p-1.5 shadow-lg">
+        <img 
+          src={batch.company_logo} 
+          alt={batch.company_name || "Producer"} 
+          className="h-8 w-auto object-contain max-w-[100px]"
+          onError={(e) => {
+            e.target.parentElement.style.display = 'none';
+          }}
+        />
+      </div>
+    )}
+    
+    <div className="text-center text-white">
+      <div className="text-6xl mb-2">🐟</div>
+      <p className="text-blue-200 text-sm">
+        {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} ·{' '}
+        {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}
+      </p>
+    </div>
+  </div>
+
+  <div className="p-5">
+    {/* Company name under product name if traced */}
+    <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+    <p className="text-gray-500 mt-1">
+      {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
+    </p>
+    {isTraced && batch?.company_name && (
+      <p className="text-blue-600 text-sm font-medium mt-1">
+        Produced by {batch.company_name}
+      </p>
+    )}
+    <p className="text-gray-400 text-sm mt-1">
+      <span className="italic">{product.species.scientific_name}</span>
+      {displayData.catchMethod && ` · ${displayData.catchMethod}`}
+    </p>
+
+    {/* Batch ID if traced */}
+    {isTraced && (
+      <div className="mt-3 inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-lg">
+        <span>📦</span>
+        <span>Batch: {batch.id}</span>
+      </div>
+    )}
+
+    {/* Certifications + Days to Shelf */}
+    <div className="mt-5 flex items-center justify-center gap-4">
+      <CertificationBadges certifications={product.certifications} />
+
+      {!isTraced && product.saga?.days_from_catch_to_shelf != null && (
+        <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
+          <span className="text-3xl font-bold text-blue-700 leading-none">
+            {product.saga.days_from_catch_to_shelf}
+          </span>
+          <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
+            days catch
+            <br />
+            to shelf
+          </span>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
 
 {/* Batch Carbon Footprint Card - Only shown for traced products */}
 {isTraced && displayData.carbonPerKg && (
