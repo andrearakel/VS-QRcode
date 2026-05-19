@@ -949,10 +949,7 @@ function ExtraDetail({ extra, productId, batch, isTraced, onRecipeClick }) {
 
       <div className="grid grid-cols-1 gap-3">
         <InfoBox label="Storage" value={extra.storage_instructions} />
-        <InfoBox label="Shelf Life" value={`${extra.shelf_life_days} days`} />
-        <InfoBox label="Best Before" value={extra.best_before} />
         {!isTraced && <InfoBox label="Batch" value={extra.batch_id} />}
-        <InfoBox label="Barcode" value={extra.barcode} />
         <InfoBox label="Allergens" value={extra.allergens.join(', ') || 'None'} />
       </div>
 
