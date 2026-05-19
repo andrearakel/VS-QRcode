@@ -100,23 +100,25 @@ export default function ProductLanding({ product, batch = null }) {
         <span>✓</span> Batch Verified
       </div>
     )}
-
-    {/* Company Logo - top right */}
-    {isTraced && batch?.company_logo && (
-      <div className="absolute top-3 right-3 bg-white rounded-lg p-1.5 shadow-lg">
-        <img 
-          src={batch.company_logo} 
-          alt={batch.company_name || "Producer"} 
-          className="h-8 w-auto object-contain max-w-[100px]"
-          onError={(e) => {
-            e.target.parentElement.style.display = 'none';
-          }}
-        />
-      </div>
-    )}
     
     <div className="text-center text-white">
-      <div className="text-6xl mb-2">🐟</div>
+      {/* Company Logo or Fish Emoji */}
+      {isTraced && batch?.company_logo ? (
+        <div className="bg-white rounded-2xl p-4 shadow-xl mb-2">
+          <img 
+            src={batch.company_logo} 
+            alt={batch.company_name || "Producer"} 
+            className="h-20 w-auto object-contain max-w-[180px]"
+            onError={(e) => {
+              // Fall back to fish emoji if logo fails
+              e.target.parentElement.innerHTML = '<span class="text-6xl">🐟</span>';
+              e.target.parentElement.classList.remove('bg-white', 'p-4', 'shadow-xl');
+            }}
+          />
+        </div>
+      ) : (
+        <div className="text-6xl mb-2">🐟</div>
+      )}
       <p className="text-blue-200 text-sm">
         {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} ·{' '}
         {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}
@@ -125,7 +127,6 @@ export default function ProductLanding({ product, batch = null }) {
   </div>
 
   <div className="p-5">
-    {/* Company name under product name if traced */}
     <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
     <p className="text-gray-500 mt-1">
       {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
