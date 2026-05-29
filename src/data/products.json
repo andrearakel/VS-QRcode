@@ -802,6 +802,139 @@
           { "name": "Gravlax – Icelandic Style" }
         ]
       }
+    },
+    {
+
+      "id": "prod-007",
+      "name": "Dried Dulse (Söl)",
+      "format": "dried",
+      "cut": "whole leaf",
+      "species": {
+        "common_name": "Dulse",
+        "scientific_name": "Palmaria palmata"
+      },
+      "producer": {
+        "name": "Þarabræður",
+        "location": "Westfjords, Iceland"
+      },
+      "certifications": [
+        {
+          "id": "organic",
+          "name": "Organic Certified",
+          "description": "Certified organic wild-harvested seaweed — no fertilizers, no chemicals."
+        }
+      ],
+      "topLayer": {
+        "origin_short": "Westfjords, Iceland",
+        "catch_method": "Wild-harvested, hand-picked",
+        "sustainability_score": 97,
+        "purity_score": 98
+      },
+      "saga": {
+        "catch_date": "2026-07-08",
+        "vessel_name": null,
+        "landing_port": null,
+        "catch_area": "Westfjords, intertidal zone",
+        "catch_method": "Wild-harvested, hand-picked",
+        "supply_chain": [
+          { "step": "Harvested", "location": "Westfjords, intertidal shore", "date": "2026-07-08", "detail": "Hand-picked at low tide, sustainable rotation" },
+          { "step": "Dried", "location": "Þarabræður drying facility", "date": "2026-07-10", "detail": "Air-dried at low temperature, preserving nutrients" },
+          { "step": "Packaged", "location": "Þarabræður facility, Westfjords", "date": "2026-07-14", "detail": "Sealed in resealable pouches, 50g portions" }
+        ],
+        "processing_method": "Air-dried at low temperature",
+        "processing_facility": "Þarabræður, Westfjords",
+        "days_from_catch_to_shelf": 6
+      },
+      "sotspor": {
+        "carbon_kg_co2_per_kg": 0.48,
+        "transport_km": 0,
+        "fishing_fuel_liters_per_kg": 0.0,
+        "processing_energy_kwh_per_kg": 0.30,
+        "cold_chain_energy_kwh_per_kg": 0.0,
+        "water_liters_per_kg": 5,
+        "waste_percentage": 3,
+        "packaging_recyclable": true,
+        "transport_mode": "Domestic only (no export)",
+        "notes": "Wild seaweed requires no feed, fertilizer, freshwater, or arable land. Harvesting has near-zero emissions. Drying uses geothermal energy. One of the lowest carbon footprints of any food product.",
+        "comparison": {
+          "beef_carbon": 27.0,
+          "category_avg_whitefish_carbon": 3.2,
+          "chicken_carbon": 5.4
+        }
+      },
+      "naeringarefni": {
+        "health_highlights": [
+          "Extremely rich in Iodine – 890 µg per 100g",
+          "High in dietary fibre – 34g per 100g",
+          "Excellent source of Potassium and Iron",
+          "Natural source of protein – 14g per 100g"
+        ],
+        "per_100g": {
+          "energy_kcal": 200,
+          "energy_kj": 844,
+          "protein_g": 14.0,
+          "fat_total_g": 0.54,
+          "fat_saturated_g": 0.17,
+          "fat_polyunsaturated_g": 0.10,
+          "omega3_epa_mg": 0,
+          "omega3_dha_mg": 0,
+          "carbohydrates_g": 18.5,
+          "fibre_g": 33.9,
+          "salt_g": 3.66
+        },
+        "vitamins_minerals": {
+          "vitamin_d_ug": 0,
+          "vitamin_b12_ug": 0,
+          "selenium_ug": 24.7,
+          "iodine_ug": 890,
+          "phosphorus_mg": 280,
+          "potassium_mg": 4720,
+          "iron_mg": 11.7,
+          "calcium_mg": 150,
+          "magnesium_mg": 210
+        }
+      },
+      "hreinleiki": {
+        "all_eu_limits_passed": true,
+        "testing_lab": "Matís ohf., Reykjavík",
+        "testing_date": "2026-07-12",
+        "antibiotics_used": false,
+        "hormones_used": false,
+        "pesticides_detected": false,
+        "microplastics_result": "Not detected",
+        "heavy_metals": {
+          "mercury_mg_kg": 0.01,
+          "mercury_eu_limit": 0.1,
+          "cadmium_mg_kg": 0.15,
+          "cadmium_eu_limit": 3.0,
+          "lead_mg_kg": 0.08,
+          "lead_eu_limit": 3.0
+        },
+        "contaminants": {
+          "pcbs_pg_g": 0.1,
+          "dioxins_pg_g": 0.05,
+          "dioxins_eu_limit_pg_g": 6.5
+        },
+        "water_quality": {
+          "source": "North Atlantic, Westfjords intertidal",
+          "temperature_c": 8.2,
+          "classification": "Class A – Pristine"
+        }
+      },
+      "extra": {
+        "storage_instructions": "Store in a cool, dry place. Reseal after opening. No refrigeration required.",
+        "shelf_life_days": 365,
+        "best_before": "2027-07-14",
+        "batch_id": "THB-DUL-2026-0708-A",
+        "barcode": "5694120300013",
+        "allergens": [],
+        "recipes": [
+          { "name": "Dulse Butter on Sourdough" },
+          { "name": "Seaweed Seasoning Flakes" },
+          { "name": "Dulse & Potato Soup" }
+        ],
+        "fun_fact": "Dulse has more potassium than bananas, more fibre than oats, and enough iodine in a 5g serving to meet your daily needs."
+      }
     }
   ]
 }

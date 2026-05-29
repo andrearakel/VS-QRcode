@@ -23,6 +23,11 @@ const CERT_LOGOS = {
     alt: 'Nordic Keyhole — Healthier choice',
     label: 'Keyhole',
   },
+  organic: {
+    src: '/images/certs/organic.png',
+    alt: 'Organic Certified — No chemicals or fertilizers',
+    label: 'Organic',
+  },
 };
 
 export default function ProductLanding({ product, batch = null }) {
@@ -89,129 +94,144 @@ export default function ProductLanding({ product, batch = null }) {
     ? `${product.sotspor.carbon_kg_co2_per_kg} kg CO₂/kg · ${product.sotspor.transport_km} km`
     : 'View footprint data';
 
+  // Nutrition subtitle - handle products with no omega-3
+  const omega3Total = (naeringarefni.per_100g.omega3_epa_mg || 0) + (naeringarefni.per_100g.omega3_dha_mg || 0);
+  const nutritionSubtitle = omega3Total > 0
+    ? `${naeringarefni.per_100g.protein_g} g protein · ${omega3Total} mg Omega-3`
+    : naeringarefni.per_100g.fibre_g
+    ? `${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.fibre_g} g fibre`
+    : `${naeringarefni.per_100g.protein_g} g protein`;
+
   return (
     <div className="max-w-md mx-auto bg-gray-50 min-h-screen">
-{/* Hero Section */}
-<div className="bg-white">
-  <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center relative">
-    {/* Traced Badge - top left */}
-    {isTraced && (
-      <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
-        <span>✓</span> Batch Verified
-      </div>
-    )}
-    
-    <div className="text-center text-white">
-      {/* Company Logo or Fish Emoji */}
-      {isTraced && batch?.company_logo ? (
-        <div className="bg-white rounded-2xl p-4 shadow-xl mb-2">
-          <img 
-            src={batch.company_logo} 
-            alt={batch.company_name || "Producer"} 
-            className="h-20 w-auto object-contain max-w-[180px]"
-            onError={(e) => {
-              // Fall back to fish emoji if logo fails
-              e.target.parentElement.innerHTML = '<span class="text-6xl">🐟</span>';
-              e.target.parentElement.classList.remove('bg-white', 'p-4', 'shadow-xl');
-            }}
-          />
-        </div>
-      ) : (
-        <div className="text-6xl mb-2">🐟</div>
-      )}
-      <p className="text-blue-200 text-sm">
-        {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'} ·{' '}
-        {product.cut === 'whole_gutted' ? 'Whole' : 'Loin'}
-      </p>
-    </div>
-  </div>
-
-  <div className="p-5">
-    <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
-    <p className="text-gray-500 mt-1">
-      {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
-    </p>
-    {isTraced && batch?.company_name && (
-      <p className="text-blue-600 text-sm font-medium mt-1">
-        Produced by {batch.company_name}
-      </p>
-    )}
-    <p className="text-gray-400 text-sm mt-1">
-      <span className="italic">{product.species.scientific_name}</span>
-      {displayData.catchMethod && ` · ${displayData.catchMethod}`}
-    </p>
-
-    {/* Batch ID if traced */}
-    {isTraced && (
-      <div className="mt-3 inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-lg">
-        <span>📦</span>
-        <span>Batch: {batch.id}</span>
-      </div>
-    )}
-
-    {/* Certifications + Days to Shelf */}
-    <div className="mt-5 flex items-center justify-center gap-4">
-      <CertificationBadges certifications={product.certifications} />
-
-      {!isTraced && product.saga?.days_from_catch_to_shelf != null && (
-        <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
-          <span className="text-3xl font-bold text-blue-700 leading-none">
-            {product.saga.days_from_catch_to_shelf}
-          </span>
-          <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
-            days catch
-            <br />
-            to shelf
-          </span>
-        </div>
-      )}
-    </div>
-  </div>
-</div>
-
-{/* Batch Carbon Footprint Card - Only shown for traced products */}
-{isTraced && displayData.carbonPerKg && (
-  <div className="px-4 pt-4">
-    <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 text-white shadow-lg">
-      <div className="flex items-center gap-2 mb-2">
-        <span>🌍</span>
-        <span className="font-semibold text-sm">Verified Carbon Footprint</span>
-      </div>
-      <div className="flex items-baseline gap-3">
-        <span className="text-3xl font-bold">{displayData.carbonPerKg.toFixed(2)}</span>
-        <span className="text-emerald-100 text-sm">kg CO₂e per kg</span>
-      </div>
-      {displayData.stages && (() => {
-        const total = (displayData.stages.fishing || 0) + 
-                      (displayData.stages.processing || 0) + 
-                      (displayData.stages.distribution || 0);
-        if (total === 0) return null;
-        const fishingPct = Math.round((displayData.stages.fishing || 0) / total * 100);
-        const processingPct = Math.round((displayData.stages.processing || 0) / total * 100);
-        const distributionPct = Math.round((displayData.stages.distribution || 0) / total * 100);
-        
-        return (
-          <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-center gap-3 text-sm">
-            <div className="flex items-center gap-1">
-              <span>🚢</span>
-              <span className="font-bold">{fishingPct}%</span>
+      {/* Hero Section */}
+      <div className="bg-white">
+        <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center relative">
+          {/* Traced Badge - top left */}
+          {isTraced && (
+            <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+              <span>✓</span> Batch Verified
             </div>
-            <span className="text-emerald-300">·</span>
-            <div className="flex items-center gap-1">
-              <span>🏭</span>
-              <span className="font-bold">{processingPct}%</span>
-            </div>
-            <span className="text-emerald-300">·</span>
-            <div className="flex items-center gap-1">
-              <span>🚚</span>
-              <span className="font-bold">{distributionPct}%</span>
-            </div>
+          )}
+
+          <div className="text-center text-white">
+            {/* Company Logo or Emoji */}
+            {isTraced && batch?.company_logo ? (
+              <div className="bg-white rounded-2xl p-4 shadow-xl mb-2">
+                <img
+                  src={batch.company_logo}
+                  alt={batch.company_name || 'Producer'}
+                  className="h-20 w-auto object-contain max-w-[180px]"
+                  onError={(e) => {
+                    e.target.parentElement.innerHTML = '<span class="text-6xl">🐟</span>';
+                    e.target.parentElement.classList.remove('bg-white', 'p-4', 'shadow-xl');
+                  }}
+                />
+              </div>
+            ) : (
+              <div className="text-6xl mb-2">
+                {product.format === 'dried' ? '🌿' : '🐟'}
+              </div>
+            )}
+            <p className="text-blue-200 text-sm">
+              {product.format === 'dried'
+                ? '🌿 Dried'
+                : product.format === 'frozen'
+                ? '❄️ Frozen'
+                : '🧊 Fresh'}
+              {product.cut && ` · ${product.cut === 'whole_gutted' ? 'Whole' : product.cut === 'loin' ? 'Loin' : product.cut}`}
+            </p>
           </div>
-        );
-      })()}
-    </div>
-  </div>
-)}
+        </div>
+
+        <div className="p-5">
+          <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+          <p className="text-gray-500 mt-1">
+            {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
+          </p>
+          {isTraced && batch?.company_name && (
+            <p className="text-blue-600 text-sm font-medium mt-1">
+              Produced by {batch.company_name}
+            </p>
+          )}
+          <p className="text-gray-400 text-sm mt-1">
+            <span className="italic">{product.species.scientific_name}</span>
+            {displayData.catchMethod && ` · ${displayData.catchMethod}`}
+          </p>
+
+          {/* Batch ID if traced */}
+          {isTraced && (
+            <div className="mt-3 inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-lg">
+              <span>📦</span>
+              <span>Batch: {batch.id}</span>
+            </div>
+          )}
+
+          {/* Certifications + Days to Shelf */}
+          <div className="mt-5 flex items-center justify-center gap-4">
+            <CertificationBadges certifications={product.certifications} />
+
+            {!isTraced && product.saga?.days_from_catch_to_shelf != null && (
+              <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
+                <span className="text-3xl font-bold text-blue-700 leading-none">
+                  {product.saga.days_from_catch_to_shelf}
+                </span>
+                <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
+                  days catch
+                  <br />
+                  to shelf
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Batch Carbon Footprint Card - Only shown for traced products */}
+      {isTraced && displayData.carbonPerKg && (
+        <div className="px-4 pt-4">
+          <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 text-white shadow-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <span>🌍</span>
+              <span className="font-semibold text-sm">Verified Carbon Footprint</span>
+            </div>
+            <div className="flex items-baseline gap-3">
+              <span className="text-3xl font-bold">{displayData.carbonPerKg.toFixed(2)}</span>
+              <span className="text-emerald-100 text-sm">kg CO₂e per kg</span>
+            </div>
+            {displayData.stages &&
+              (() => {
+                const total =
+                  (displayData.stages.fishing || 0) +
+                  (displayData.stages.processing || 0) +
+                  (displayData.stages.distribution || 0);
+                if (total === 0) return null;
+                const fishingPct = Math.round(((displayData.stages.fishing || 0) / total) * 100);
+                const processingPct = Math.round(((displayData.stages.processing || 0) / total) * 100);
+                const distributionPct = Math.round(((displayData.stages.distribution || 0) / total) * 100);
+
+                return (
+                  <div className="mt-3 pt-3 border-t border-white/20 flex items-center justify-center gap-3 text-sm">
+                    <div className="flex items-center gap-1">
+                      <span>🚢</span>
+                      <span className="font-bold">{fishingPct}%</span>
+                    </div>
+                    <span className="text-emerald-300">·</span>
+                    <div className="flex items-center gap-1">
+                      <span>🏭</span>
+                      <span className="font-bold">{processingPct}%</span>
+                    </div>
+                    <span className="text-emerald-300">·</span>
+                    <div className="flex items-center gap-1">
+                      <span>🚚</span>
+                      <span className="font-bold">{distributionPct}%</span>
+                    </div>
+                  </div>
+                );
+              })()}
+          </div>
+        </div>
+      )}
 
       {/* Category Cards */}
       <div className="p-4 space-y-3">
@@ -229,7 +249,7 @@ export default function ProductLanding({ product, batch = null }) {
         <CategoryCard
           icon="🥗"
           title="Nutrition"
-          subtitle={`${naeringarefni.per_100g.protein_g} g protein · ${naeringarefni.per_100g.omega3_epa_mg + naeringarefni.per_100g.omega3_dha_mg} mg Omega-3`}
+          subtitle={nutritionSubtitle}
           onClick={() => handleCategoryClick('naeringarefni')}
         />
 
@@ -314,13 +334,10 @@ function CertificationBadges({ certifications }) {
             </button>
 
             {isActive && (
-              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-20
-                            bg-gray-900 text-white text-xs rounded-lg px-3 py-2
-                            whitespace-nowrap shadow-lg animate-fade-in">
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-20 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap shadow-lg animate-fade-in">
                 <div className="font-semibold">{cert.name}</div>
                 <div className="text-gray-300 mt-0.5">{cert.description}</div>
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2
-                              w-2 h-2 bg-gray-900 rotate-45" />
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45" />
               </div>
             )}
           </div>
@@ -427,9 +444,6 @@ function CategoryDetail({ category, product, batch, displayData, isTraced, onClo
    ============================================ */
 
 function SagaDetail({ product, displayData, isTraced }) {
-  // For batches: only show batch data (no fallback to product)
-  // For products: show product saga data
-
   if (isTraced) {
     return (
       <div className="space-y-6">
@@ -444,8 +458,8 @@ function SagaDetail({ product, displayData, isTraced }) {
         <div className="grid grid-cols-2 gap-3">
           <InfoBox label="Catch Area" value={displayData.catchArea} />
           <InfoBox label="Method" value={displayData.catchMethod} />
-          <InfoBox label="Vessel" value={displayData.vessel} />
-          <InfoBox label="Landed" value={displayData.landingPort} />
+          {displayData.vessel && <InfoBox label="Vessel" value={displayData.vessel} />}
+          {displayData.landingPort && <InfoBox label="Landed" value={displayData.landingPort} />}
           <InfoBox label="Landing Date" value={displayData.catchDate} />
           <InfoBox label="Processor" value={displayData.processingFacility} />
           {displayData.processingDate && (
@@ -457,37 +471,37 @@ function SagaDetail({ product, displayData, isTraced }) {
         <div>
           <h3 className="font-semibold text-gray-900 mb-3">Journey</h3>
           <div className="space-y-0">
-            {/* Caught */}
             <JourneyStep
               icon="🎣"
               title="Caught"
-              detail={[
-                displayData.vessel && `Vessel: ${displayData.vessel}`,
-                displayData.catchMethod,
-                displayData.catchArea && `Area: ${displayData.catchArea}`,
-              ].filter(Boolean).join(' · ') || 'Details not provided'}
+              detail={
+                [
+                  displayData.vessel && `Vessel: ${displayData.vessel}`,
+                  displayData.catchMethod,
+                  displayData.catchArea && `Area: ${displayData.catchArea}`,
+                ]
+                  .filter(Boolean)
+                  .join(' · ') || 'Details not provided'
+              }
               isLast={false}
             />
-            
-            {/* Landed */}
             <JourneyStep
               icon="⚓"
               title="Landed"
-              detail={[
-                displayData.landingPort,
-                displayData.catchDate,
-              ].filter(Boolean).join(' · ') || 'Details not provided'}
+              detail={
+                [displayData.landingPort, displayData.catchDate].filter(Boolean).join(' · ') ||
+                'Details not provided'
+              }
               isLast={false}
             />
-            
-            {/* Processed */}
             <JourneyStep
               icon="🏭"
               title="Processed"
-              detail={[
-                displayData.processingFacility,
-                displayData.processingDate,
-              ].filter(Boolean).join(' · ') || 'Details not provided'}
+              detail={
+                [displayData.processingFacility, displayData.processingDate]
+                  .filter(Boolean)
+                  .join(' · ') || 'Details not provided'
+              }
               isLast={true}
             />
           </div>
@@ -496,9 +510,9 @@ function SagaDetail({ product, displayData, isTraced }) {
     );
   }
 
-  // Non-traced: show product saga (original behavior)
+  // Non-traced: show product saga
   const saga = product.saga;
-  
+
   if (!saga) {
     return <p className="text-gray-500">No product story available.</p>;
   }
@@ -508,8 +522,8 @@ function SagaDetail({ product, displayData, isTraced }) {
       <div className="grid grid-cols-2 gap-3">
         <InfoBox label="Catch Area" value={saga.catch_area} />
         <InfoBox label="Method" value={saga.catch_method} />
-        <InfoBox label="Vessel" value={saga.vessel_name} />
-        <InfoBox label="Landed" value={saga.landing_port} />
+        {saga.vessel_name && <InfoBox label="Vessel" value={saga.vessel_name} />}
+        {saga.landing_port && <InfoBox label="Landed" value={saga.landing_port} />}
       </div>
 
       {saga.supply_chain && saga.supply_chain.length > 0 && (
@@ -555,9 +569,6 @@ function SagaDetail({ product, displayData, isTraced }) {
    ============================================ */
 
 function SotsporDetail({ product, displayData, isTraced, batch }) {
-  // For batches: only show batch carbon data
-  // For products: show product sotspor data
-
   if (isTraced) {
     if (!displayData.carbonPerKg) {
       return (
@@ -573,20 +584,23 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
       );
     }
 
-    // Calculate percentages for stage breakdown
     const stageTotal = displayData.stages
       ? (displayData.stages.fishing || 0) +
         (displayData.stages.processing || 0) +
         (displayData.stages.distribution || 0)
       : 0;
 
-    const fishingPct = stageTotal > 0 ? Math.round((displayData.stages?.fishing || 0) / stageTotal * 100) : 0;
-    const processingPct = stageTotal > 0 ? Math.round((displayData.stages?.processing || 0) / stageTotal * 100) : 0;
-    const distributionPct = stageTotal > 0 ? Math.round((displayData.stages?.distribution || 0) / stageTotal * 100) : 0;
+    const fishingPct =
+      stageTotal > 0 ? Math.round(((displayData.stages?.fishing || 0) / stageTotal) * 100) : 0;
+    const processingPct =
+      stageTotal > 0 ? Math.round(((displayData.stages?.processing || 0) / stageTotal) * 100) : 0;
+    const distributionPct =
+      stageTotal > 0
+        ? Math.round(((displayData.stages?.distribution || 0) / stageTotal) * 100)
+        : 0;
 
     return (
       <div className="space-y-6">
-        {/* Traced badge */}
         <div className="bg-green-50 border border-green-200 rounded-xl p-3 flex items-center gap-2">
           <span className="text-green-600">✓</span>
           <span className="text-sm text-green-800 font-medium">
@@ -594,7 +608,6 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
           </span>
         </div>
 
-        {/* Main carbon value */}
         <div className="text-center bg-green-50 rounded-xl p-5">
           <div className="text-4xl font-bold text-green-700">
             {displayData.carbonPerKg.toFixed(2)}
@@ -603,7 +616,6 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
           <div className="text-xs text-green-500 mt-2">Based on actual batch data</div>
         </div>
 
-        {/* Stage breakdown with percentages */}
         {displayData.stages && stageTotal > 0 && (
           <div>
             <h3 className="font-semibold text-gray-900 mb-3">Emissions by Stage</h3>
@@ -627,7 +639,6 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
           </div>
         )}
 
-        {/* Comparison with other proteins */}
         <div>
           <h3 className="font-semibold text-gray-900 mb-3">Comparison</h3>
           <div className="space-y-3">
@@ -637,24 +648,9 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
               max={27}
               color="bg-green-500"
             />
-            <ComparisonRow
-              label="Avg. whitefish"
-              value={2.5}
-              max={27}
-              color="bg-blue-400"
-            />
-            <ComparisonRow
-              label="Chicken (avg)"
-              value={6.9}
-              max={27}
-              color="bg-yellow-400"
-            />
-            <ComparisonRow
-              label="Beef (avg)"
-              value={27}
-              max={27}
-              color="bg-red-400"
-            />
+            <ComparisonRow label="Avg. whitefish" value={2.5} max={27} color="bg-blue-400" />
+            <ComparisonRow label="Chicken (avg)" value={6.9} max={27} color="bg-yellow-400" />
+            <ComparisonRow label="Beef (avg)" value={27} max={27} color="bg-red-400" />
           </div>
           <p className="text-xs text-gray-400 mt-3">
             Comparison values are global averages (Our World in Data)
@@ -664,7 +660,7 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
     );
   }
 
-  // Non-traced: show product sotspor (original behavior)
+  // Non-traced: show product sotspor
   const sotspor = product.sotspor;
 
   if (!sotspor) {
@@ -740,11 +736,15 @@ function SotsporDetail({ product, displayData, isTraced, batch }) {
       <div>
         <h3 className="font-semibold text-gray-900 mb-3">Breakdown</h3>
         <div className="grid grid-cols-2 gap-3">
-          <InfoBox label="Fishing fuel" value={`${sotspor.fishing_fuel_liters_per_kg} L/kg`} />
+          {sotspor.fishing_fuel_liters_per_kg > 0 && (
+            <InfoBox label="Fishing fuel" value={`${sotspor.fishing_fuel_liters_per_kg} L/kg`} />
+          )}
           <InfoBox label="Processing" value={`${sotspor.processing_energy_kwh_per_kg} kWh/kg`} />
           <InfoBox label="Transport" value={`${sotspor.transport_km} km`} />
           <InfoBox label="Transport mode" value={sotspor.transport_mode} />
-          <InfoBox label="Cold chain" value={`${sotspor.cold_chain_energy_kwh_per_kg} kWh/kg`} />
+          {sotspor.cold_chain_energy_kwh_per_kg > 0 && (
+            <InfoBox label="Cold chain" value={`${sotspor.cold_chain_energy_kwh_per_kg} kWh/kg`} />
+          )}
           <InfoBox label="Water use" value={`${sotspor.water_liters_per_kg} L/kg`} />
           <InfoBox label="Waste" value={`${sotspor.waste_percentage}%`} />
           <InfoBox
@@ -807,9 +807,16 @@ function NaeringarefniDetail({ naeringarefni, product }) {
           <NutritionRow label="Total Fat" value={`${n.fat_total_g} g`} />
           <NutritionRow label="  Saturated" value={`${n.fat_saturated_g} g`} indent />
           <NutritionRow label="  Polyunsaturated" value={`${n.fat_polyunsaturated_g} g`} indent />
-          <NutritionRow label="  Omega-3 EPA" value={`${n.omega3_epa_mg} mg`} indent highlight />
-          <NutritionRow label="  Omega-3 DHA" value={`${n.omega3_dha_mg} mg`} indent highlight />
+          {((n.omega3_epa_mg || 0) > 0 || (n.omega3_dha_mg || 0) > 0) && (
+            <>
+              <NutritionRow label="  Omega-3 EPA" value={`${n.omega3_epa_mg} mg`} indent highlight />
+              <NutritionRow label="  Omega-3 DHA" value={`${n.omega3_dha_mg} mg`} indent highlight />
+            </>
+          )}
           <NutritionRow label="Carbohydrates" value={`${n.carbohydrates_g} g`} />
+          {n.fibre_g != null && n.fibre_g > 0 && (
+            <NutritionRow label="  Fibre" value={`${n.fibre_g} g`} indent highlight />
+          )}
           <NutritionRow label="Salt" value={`${n.salt_g} g`} />
         </div>
       </div>
@@ -823,6 +830,9 @@ function NaeringarefniDetail({ naeringarefni, product }) {
           <InfoBox label="Iodine" value={`${v.iodine_ug} µg`} />
           <InfoBox label="Phosphorus" value={`${v.phosphorus_mg} mg`} />
           <InfoBox label="Potassium" value={`${v.potassium_mg} mg`} />
+          {v.iron_mg != null && <InfoBox label="Iron" value={`${v.iron_mg} mg`} />}
+          {v.calcium_mg != null && <InfoBox label="Calcium" value={`${v.calcium_mg} mg`} />}
+          {v.magnesium_mg != null && <InfoBox label="Magnesium" value={`${v.magnesium_mg} mg`} />}
         </div>
       </div>
     </div>
@@ -845,8 +855,12 @@ function SafetyDetail({ safety }) {
             <thead>
               <tr className="border-b border-gray-200">
                 <th className="text-left py-2 pr-2 text-gray-500 font-medium text-xs">Parameter</th>
-                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">Acceptable</th>
-                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">Max tolerance</th>
+                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">
+                  Acceptable
+                </th>
+                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">
+                  Max tolerance
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -857,11 +871,15 @@ function SafetyDetail({ safety }) {
                   </td>
                   <td className="py-2.5 px-2 text-right text-xs whitespace-nowrap">
                     <span className="text-green-700 font-semibold">{item.acceptable_limit}</span>
-                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                    {item.unit && (
+                      <span className="text-gray-400 font-normal ml-1">{item.unit}</span>
+                    )}
                   </td>
                   <td className="py-2.5 pl-2 text-right text-xs whitespace-nowrap">
                     <span className="text-red-600 font-semibold">{item.max_tolerance}</span>
-                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                    {item.unit && (
+                      <span className="text-gray-400 font-normal ml-1">{item.unit}</span>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -877,8 +895,12 @@ function SafetyDetail({ safety }) {
             <thead>
               <tr className="border-b border-gray-200">
                 <th className="text-left py-2 pr-2 text-gray-500 font-medium text-xs">Parameter</th>
-                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">Acceptable</th>
-                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">Max tolerance</th>
+                <th className="text-right py-2 px-2 text-green-600 font-medium text-xs">
+                  Acceptable
+                </th>
+                <th className="text-right py-2 pl-2 text-red-500 font-medium text-xs">
+                  Max tolerance
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -889,11 +911,15 @@ function SafetyDetail({ safety }) {
                   </td>
                   <td className="py-2.5 px-2 text-right text-xs whitespace-nowrap">
                     <span className="text-green-700 font-semibold">{item.acceptable_limit}</span>
-                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                    {item.unit && (
+                      <span className="text-gray-400 font-normal ml-1">{item.unit}</span>
+                    )}
                   </td>
                   <td className="py-2.5 pl-2 text-right text-xs whitespace-nowrap">
                     <span className="text-red-600 font-semibold">{item.max_tolerance}</span>
-                    {item.unit && <span className="text-gray-400 font-normal ml-1">{item.unit}</span>}
+                    {item.unit && (
+                      <span className="text-gray-400 font-normal ml-1">{item.unit}</span>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -908,9 +934,7 @@ function SafetyDetail({ safety }) {
         </p>
       </div>
 
-      <p className="text-[11px] text-gray-400 leading-relaxed">
-        {safety.regulatory_basis}
-      </p>
+      <p className="text-[11px] text-gray-400 leading-relaxed">{safety.regulatory_basis}</p>
     </div>
   );
 }
@@ -949,9 +973,15 @@ function ExtraDetail({ extra, productId, batch, isTraced, onRecipeClick }) {
 
       <div className="grid grid-cols-1 gap-3">
         <InfoBox label="Storage" value={extra.storage_instructions} />
-        {!isTraced && <InfoBox label="Batch" value={extra.batch_id} />}
-        <InfoBox label="Allergens" value={extra.allergens.join(', ') || 'None'} />
+        {!isTraced && extra.batch_id && <InfoBox label="Batch" value={extra.batch_id} />}
+        <InfoBox label="Allergens" value={extra.allergens?.length > 0 ? extra.allergens.join(', ') : 'None'} />
       </div>
+
+      {extra.fun_fact && (
+        <div className="bg-yellow-50 rounded-xl p-4">
+          <p className="text-sm text-yellow-800">💡 {extra.fun_fact}</p>
+        </div>
+      )}
 
       {extra.recipes && extra.recipes.length > 0 && (
         <div>

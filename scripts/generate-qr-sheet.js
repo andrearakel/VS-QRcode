@@ -11,6 +11,7 @@ const products = [
   { id: 'prod-004', label: 'Haddock Loin Frozen' },
   { id: 'prod-005', label: 'Salmon Fillet Fresh' },
   { id: 'prod-006', label: 'Salmon Fillet Frozen' },
+  { id: 'prod-007', label: 'Dried Dulse' }
 ];
 
 const outputDir = path.resolve('qr-codes');
