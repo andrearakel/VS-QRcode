@@ -464,5 +464,79 @@
         "Bake for 18–20 minutes until golden and bubbling. Let stand for 5 minutes before serving."
       ]
     }
+  ],
+  "prod-007": [
+    {
+      "name": "Dulse Butter on Sourdough",
+      "description": "Savoury umami butter with crispy dulse flakes on toasted sourdough",
+      "prep_time": "10 min",
+      "cook_time": "5 min",
+      "servings": 4,
+      "ingredients": [
+        "100 g butter, softened",
+        "10 g dried dulse, finely chopped",
+        "1 clove garlic, minced",
+        "1 tsp lemon juice",
+        "Pinch of flaky sea salt",
+        "4 slices sourdough bread"
+      ],
+      "steps": [
+        "Toast the dried dulse in a dry pan over medium heat for 1–2 minutes until crispy and fragrant. Let cool, then crumble finely.",
+        "Mix softened butter with crumbled dulse, minced garlic, lemon juice, and sea salt until evenly combined.",
+        "Toast the sourdough slices until golden.",
+        "Spread the dulse butter generously on warm toast and serve immediately."
+      ],
+      "tips": "The dulse butter keeps in the fridge for up to a week. Also great on grilled fish or baked potatoes."
+    },
+    {
+      "name": "Seaweed Seasoning Flakes",
+      "description": "Versatile umami seasoning to sprinkle on anything — eggs, rice, popcorn, salads",
+      "prep_time": "5 min",
+      "cook_time": "3 min",
+      "servings": 12,
+      "ingredients": [
+        "20 g dried dulse",
+        "1 tbsp sesame seeds",
+        "1 tsp flaky sea salt",
+        "½ tsp garlic powder",
+        "½ tsp onion powder",
+        "¼ tsp black pepper"
+      ],
+      "steps": [
+        "Toast the dried dulse in a dry pan over medium heat for 1–2 minutes until crispy. Remove and let cool.",
+        "Toast sesame seeds in the same pan until golden, about 1 minute.",
+        "Crumble the dulse into small flakes by hand or pulse briefly in a spice grinder (keep some texture).",
+        "Mix dulse flakes with sesame seeds, salt, garlic powder, onion powder, and black pepper.",
+        "Store in an airtight jar. Sprinkle on everything."
+      ],
+      "tips": "Lasts for months in a sealed jar. Try it on buttered rice, avocado toast, or scrambled eggs."
+    },
+    {
+      "name": "Dulse & Potato Soup",
+      "description": "Creamy Icelandic-inspired soup with smoky dulse and tender potatoes",
+      "prep_time": "10 min",
+      "cook_time": "25 min",
+      "servings": 4,
+      "ingredients": [
+        "15 g dried dulse",
+        "500 g potatoes, peeled and diced",
+        "1 medium onion, diced",
+        "2 cloves garlic, minced",
+        "1 tbsp butter",
+        "750 ml vegetable stock",
+        "150 ml cream",
+        "Salt and pepper to taste",
+        "Fresh chives for garnish"
+      ],
+      "steps": [
+        "Soak the dulse in warm water for 5 minutes, then drain and roughly chop.",
+        "Melt butter in a pot over medium heat. Sauté onion and garlic until soft, about 3 minutes.",
+        "Add diced potatoes and vegetable stock. Bring to a boil, then simmer for 15–18 minutes until potatoes are tender.",
+        "Add the chopped dulse and cream. Simmer for 3 more minutes.",
+        "Blend until smooth (or leave partially chunky). Season with salt and pepper.",
+        "Serve hot, garnished with chives and a few crispy dulse flakes on top."
+      ],
+      "tips": "For extra smokiness, toast a few dulse pieces and crumble on top before serving. Works beautifully with crusty bread."
+    }
   ]
 }

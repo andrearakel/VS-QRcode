@@ -3,6 +3,12 @@
     {
       "id": "prod-001",
       "name": "Cod Loin Fresh",
+      "theme": {
+  "hero_image": "/images/products/cod.png",
+  "gradient_from": "#1e3a8a",
+  "gradient_to": "#1e40af",
+  "accent": "#3b82f6"
+},
       "format": "fresh",
       "cut": "loin",
       "species": {
@@ -807,6 +813,12 @@
 
       "id": "prod-007",
       "name": "Dried Dulse (Söl)",
+        "theme": {
+      "gradient_from": "#4a1942",
+      "gradient_to": "#802b5e",
+      "accent": "#c2616b",
+      "hero_image": "/images/products/20_dulse_whole-leaf-seaweed.jpg"
+      },
       "format": "dried",
       "cut": "whole leaf",
       "species": {
@@ -817,13 +829,23 @@
         "name": "Þarabræður",
         "location": "Westfjords, Iceland"
       },
-      "certifications": [
-        {
-          "id": "organic",
-          "name": "Organic Certified",
-          "description": "Certified organic wild-harvested seaweed — no fertilizers, no chemicals."
-        }
-      ],
+    "certifications": [
+  {
+    "id": "organic",
+    "name": "Organic Certified",
+    "description": "Certified organic wild-harvested seaweed — no fertilizers, no chemicals."
+  },
+  {
+    "id": "vegan",
+    "name": "Vegan",
+    "description": "Contains no animal products — 100% plant-based."
+  },
+  {
+    "id": "gluten_free",
+    "name": "Gluten Free",
+    "description": "Naturally gluten-free — suitable for coeliacs."
+  }
+],
       "topLayer": {
         "origin_short": "Westfjords, Iceland",
         "catch_method": "Wild-harvested, hand-picked",
@@ -837,8 +859,9 @@
         "catch_area": "Westfjords, intertidal zone",
         "catch_method": "Wild-harvested, hand-picked",
         "supply_chain": [
-          { "step": "Harvested", "location": "Westfjords, intertidal shore", "date": "2026-07-08", "detail": "Hand-picked at low tide, sustainable rotation" },
-          { "step": "Dried", "location": "Þarabræður drying facility", "date": "2026-07-10", "detail": "Air-dried at low temperature, preserving nutrients" },
+          { "step": "Harvested", "location": "Westfjords, intertidal shore", "date": "2026-07-08", "detail": "Hand-picked at low tide" },
+          { "step": "Washed", "location": "Þarabræður facility, Westfjords", "date": "2026-07-09", "detail": "Rinsed in fresh water to remove sand, stones, and debris" },
+          { "step": "Dried", "location": "Þarabræður drying facility", "date": "2026-07-10", "detail": "Air-dried at low temperature with geothermal energy, preserving nutrients" },
           { "step": "Packaged", "location": "Þarabræður facility, Westfjords", "date": "2026-07-14", "detail": "Sealed in resealable pouches, 50g portions" }
         ],
         "processing_method": "Air-dried at low temperature",
@@ -847,14 +870,14 @@
       },
       "sotspor": {
         "carbon_kg_co2_per_kg": 0.48,
-        "transport_km": 0,
+        "transport_km": "150",
         "fishing_fuel_liters_per_kg": 0.0,
         "processing_energy_kwh_per_kg": 0.30,
         "cold_chain_energy_kwh_per_kg": 0.0,
         "water_liters_per_kg": 5,
         "waste_percentage": 3,
         "packaging_recyclable": true,
-        "transport_mode": "Domestic only (no export)",
+        "transport_mode": "Domestic only (no export). Transport km is average from harvest site to local markets in Iceland.",
         "notes": "Wild seaweed requires no feed, fertilizer, freshwater, or arable land. Harvesting has near-zero emissions. Drying uses geothermal energy. One of the lowest carbon footprints of any food product.",
         "comparison": {
           "beef_carbon": 27.0,
@@ -864,9 +887,9 @@
       },
       "naeringarefni": {
         "health_highlights": [
-          "Extremely rich in Iodine – 890 µg per 100g",
+          "Rich in Iodine – 890 µg per 100g",
           "High in dietary fibre – 34g per 100g",
-          "Excellent source of Potassium and Iron",
+          "Good source of Potassium and Iron",
           "Natural source of protein – 14g per 100g"
         ],
         "per_100g": {

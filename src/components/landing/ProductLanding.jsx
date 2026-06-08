@@ -28,6 +28,16 @@ const CERT_LOGOS = {
     alt: 'Organic Certified — No chemicals or fertilizers',
     label: 'Organic',
   },
+    vegan: {
+    src: '/images/certs/vegan.png',
+    alt: 'Certified Vegan — contains no animal products',
+    label: 'Vegan'
+  },
+  gluten_free: {
+    src: '/images/certs/gluten-free.png',
+    alt: 'Gluten Free — suitable for coeliacs',
+    label: 'Gluten Free'
+  }
 };
 
 export default function ProductLanding({ product, batch = null }) {
@@ -37,6 +47,9 @@ export default function ProductLanding({ product, batch = null }) {
 
   // Check if this is a batch-traced product
   const isTraced = batch !== null;
+
+  // Theme-aware accent color
+  const accent = product.theme?.accent || '#0ea5e9';
 
   useEffect(() => {
     trackLanding();
@@ -106,41 +119,68 @@ export default function ProductLanding({ product, batch = null }) {
     <div className="max-w-md mx-auto bg-gray-50 min-h-screen">
       {/* Hero Section */}
       <div className="bg-white">
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 h-48 flex items-center justify-center relative">
+        <div className="relative h-48 flex items-center justify-center overflow-hidden">
+          {/* Background layer: image + overlay OR gradient */}
+          <div className="absolute inset-0">
+            {product.theme?.hero_image ? (
+              <>
+                <img
+                  src={product.theme.hero_image}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                {/* Semi-transparent overlay for text readability */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(to bottom, ${product.theme.gradient_from}b3, ${product.theme.gradient_to}e6)`
+                  }}
+                />
+              </>
+            ) : (
+              <div
+                className="w-full h-full"
+                style={{
+                  background: product.theme
+                    ? `linear-gradient(135deg, ${product.theme.gradient_from}, ${product.theme.gradient_to})`
+                    : 'linear-gradient(135deg, #1e3a8a, #1e40af)'
+                }}
+              />
+            )}
+          </div>
+
           {/* Traced Badge - top left */}
           {isTraced && (
-            <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+            <div className="absolute top-3 left-3 z-10 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
               <span>✓</span> Batch Verified
             </div>
           )}
 
-          <div className="text-center text-white">
-            {/* Company Logo or Emoji */}
-            {isTraced && batch?.company_logo ? (
-              <div className="bg-white rounded-2xl p-4 shadow-xl mb-2">
-                <img
-                  src={batch.company_logo}
-                  alt={batch.company_name || 'Producer'}
-                  className="h-20 w-auto object-contain max-w-[180px]"
-                  onError={(e) => {
-                    e.target.parentElement.innerHTML = '<span class="text-6xl">🐟</span>';
-                    e.target.parentElement.classList.remove('bg-white', 'p-4', 'shadow-xl');
-                  }}
-                />
-              </div>
-            ) : (
-              <div className="text-6xl mb-2">
-                {product.format === 'dried' ? '🌿' : '🐟'}
-              </div>
+          {/* Hero content - only show for non-themed (fish) products */}
+          <div className="relative z-10 text-center text-white">
+            {!product.theme && (
+              <>
+                {isTraced && batch?.company_logo ? (
+                  <div className="bg-white rounded-2xl p-4 shadow-xl mb-2">
+                    <img
+                      src={batch.company_logo}
+                      alt={batch.company_name || 'Producer'}
+                      className="h-20 w-auto object-contain max-w-[180px]"
+                      onError={(e) => {
+                        e.target.parentElement.innerHTML = '<span class="text-6xl">🐟</span>';
+                        e.target.parentElement.classList.remove('bg-white', 'p-4', 'shadow-xl');
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="text-6xl mb-2">🐟</div>
+                )}
+                <p className="text-white/80 text-sm">
+                  {product.format === 'frozen' ? '❄️ Frozen' : '🧊 Fresh'}
+                  {product.cut && ` · ${product.cut === 'whole_gutted' ? 'Whole' : product.cut === 'loin' ? 'Loin' : product.cut}`}
+                </p>
+              </>
             )}
-            <p className="text-blue-200 text-sm">
-              {product.format === 'dried'
-                ? '🌿 Dried'
-                : product.format === 'frozen'
-                ? '❄️ Frozen'
-                : '🧊 Fresh'}
-              {product.cut && ` · ${product.cut === 'whole_gutted' ? 'Whole' : product.cut === 'loin' ? 'Loin' : product.cut}`}
-            </p>
           </div>
         </div>
 
@@ -166,24 +206,23 @@ export default function ProductLanding({ product, batch = null }) {
               <span>Batch: {batch.id}</span>
             </div>
           )}
+{/* Certifications + Days to Shelf */}
+<div className="mt-5 flex items-center justify-center gap-4">
+  <CertificationBadges certifications={product.certifications} />
 
-          {/* Certifications + Days to Shelf */}
-          <div className="mt-5 flex items-center justify-center gap-4">
-            <CertificationBadges certifications={product.certifications} />
-
-            {!isTraced && product.saga?.days_from_catch_to_shelf != null && (
-              <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
-                <span className="text-3xl font-bold text-blue-700 leading-none">
-                  {product.saga.days_from_catch_to_shelf}
-                </span>
-                <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
-                  days catch
-                  <br />
-                  to shelf
-                </span>
-              </div>
-            )}
-          </div>
+  {!product.theme && !isTraced && product.saga?.days_from_catch_to_shelf != null && (
+    <div className="flex flex-col items-center justify-center bg-blue-50 rounded-xl w-[90px] h-[90px]">
+      <span className="text-3xl font-bold text-blue-700 leading-none">
+        {product.saga.days_from_catch_to_shelf}
+      </span>
+      <span className="text-[13px] text-blue-500 font-medium leading-tight text-center mt-1">
+        days catch
+        <br />
+        to shelf
+      </span>
+    </div>
+  )}
+</div>
         </div>
       </div>
 
