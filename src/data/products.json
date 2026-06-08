@@ -820,6 +820,7 @@
       "hero_image": "/images/products/20_dulse_whole-leaf-seaweed.jpg" 
       },
       "hide_safety": true,
+      "best_before": "23-12-2026",
       "format": "dried",
       "cut": "whole leaf",
       "species": {
@@ -854,16 +855,16 @@
         "purity_score": 98
       },
       "saga": {
-        "catch_date": "2026-07-08",
+        "catch_date": "08-06-2026",
         "vessel_name": null,
         "landing_port": null,
         "catch_area": "Westfjords, intertidal zone",
         "catch_method": "Wild-harvested, hand-picked",
         "supply_chain": [
-          { "step": "Harvested", "location": "Westfjords, intertidal shore", "date": "2026-07-08", "detail": "Hand-picked at low tide" },
-          { "step": "Washed", "location": "Þarabræður facility, Westfjords", "date": "2026-07-09", "detail": "Rinsed in fresh water to remove sand, stones, and debris" },
-          { "step": "Dried", "location": "Þarabræður drying facility", "date": "2026-07-10", "detail": "Air-dried at low temperature with geothermal energy, preserving nutrients" },
-          { "step": "Packaged", "location": "Þarabræður facility, Westfjords", "date": "2026-07-14", "detail": "Sealed in resealable pouches, 50g portions" }
+          { "step": "Harvested", "location": "Westfjords, intertidal shore", "date": "08-06-2026", "detail": "Hand-picked at low tide" },
+          { "step": "Washed", "location": "Þarabræður facility, Westfjords", "date": "09-06-2026", "detail": "Rinsed in fresh water to remove sand, stones, and debris" },
+          { "step": "Dried", "location": "Þarabræður drying facility", "date": "10-06-2026", "detail": "Air-dried at low temperature with geothermal energy, preserving nutrients" },
+          { "step": "Packaged", "location": "Þarabræður facility, Westfjords", "date": "14-06-2026", "detail": "Sealed in resealable pouches, 50g portions" }
         ],
         "processing_method": "Air-dried at low temperature",
         "processing_facility": "Þarabræður, Westfjords",

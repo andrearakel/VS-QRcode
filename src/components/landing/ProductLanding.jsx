@@ -208,6 +208,12 @@ export default function ProductLanding({ product, batch = null }) {
             {displayData.catchMethod && ` · ${displayData.catchMethod}`}
           </p>
 
+          {product.best_before && (
+   <p className="text-gray-600 text-xs font-semibold tracking-wide uppercase mt-3">
+    📅 Best before: {product.best_before}
+  </p>
+)}
+
           {/* Batch ID if traced */}
           {isTraced && (
             <div className="mt-3 inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-lg">
