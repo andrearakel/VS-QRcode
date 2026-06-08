@@ -209,7 +209,7 @@ export default function ProductLanding({ product, batch = null }) {
           </p>
 
           {product.best_before && (
-   <p className="text-gray-600 text-xs font-semibold tracking-wide uppercase mt-3">
+   <p className="text-gray-600 text-small font-semibold tracking-wide uppercase mt-3">
     📅 Best before: {product.best_before}
   </p>
 )}
