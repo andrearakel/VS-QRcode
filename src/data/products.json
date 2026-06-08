@@ -812,13 +812,14 @@
     {
 
       "id": "prod-007",
-      "name": "Dried Dulse (Söl)",
+      "name": "Dried Dulse (Palmaria palmata)",
         "theme": {
       "gradient_from": "#4a1942",
       "gradient_to": "#802b5e",
       "accent": "#c2616b",
-      "hero_image": "/images/products/20_dulse_whole-leaf-seaweed.jpg"
+      "hero_image": "/images/products/20_dulse_whole-leaf-seaweed.jpg" 
       },
+      "hide_safety": true,
       "format": "dried",
       "cut": "whole leaf",
       "species": {

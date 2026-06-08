@@ -185,7 +185,16 @@ export default function ProductLanding({ product, batch = null }) {
         </div>
 
         <div className="p-5">
-          <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">
+  {product.name.includes('(') ? (
+    <>
+      {product.name.split('(')[0]}
+      (<em className="italic">{product.name.split('(')[1].replace(')', '')}</em>)
+    </>
+  ) : (
+    product.name
+  )}
+</h1>
           <p className="text-gray-500 mt-1">
             {product.species.common_name} · {product.producer?.name || topLayer?.origin_short}
           </p>
@@ -299,12 +308,14 @@ export default function ProductLanding({ product, batch = null }) {
           onClick={() => handleCategoryClick('sotspor')}
         />
 
-        <CategoryCard
-          icon="🛡️"
-          title="Safety"
-          subtitle="Standards & testing criteria"
-          onClick={() => handleCategoryClick('safety')}
-        />
+       {!product.hide_safety && (
+         <CategoryCard
+           icon="🛡️"
+           title="Safety"
+           subtitle="Standards & testing criteria"
+           onClick={() => handleCategoryClick('safety')}
+         />
+       )}
 
         <CategoryCard
           icon="📦"
