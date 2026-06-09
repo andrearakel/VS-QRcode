@@ -880,7 +880,7 @@
         "waste_percentage": 3,
         "packaging_recyclable": true,
         "transport_mode": "Domestic only (no export). Transport km is average from harvest site to local markets in Iceland.",
-        "notes": "Wild seaweed requires no feed, fertilizer, freshwater, or arable land. Harvesting has near-zero emissions. Drying uses geothermal energy. One of the lowest carbon footprints of any food product.",
+        "notes": "Harvesting has near zero emissions as they are hand picked at the shore. Drying uses geothermal energy. One of the lowest carbon footprints of any food product.",
         "comparison": {
           "beef_carbon": 27.0,
           "category_avg_whitefish_carbon": 3.2,
