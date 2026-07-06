@@ -214,21 +214,7 @@ export default function ProductLanding({ product, batch = null }) {
   </p>
 )}
 
-{product.id === 'prod-001' && (
-  <div className="mt-4 text-center">
-    <p className="text-red-600 text-sm mb-2 font-semibold">
-      Help us improve the QR code system
-    </p>
-    <a
-      href="https://www.surveymonkey.com/r/QR_codes"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block w-full py-3 bg-blue-600 text-white text-sm font-semibold tracking-wide uppercase rounded-lg hover:bg-blue-700 transition"
-    >
-      📋 TAKE OUR QUICK SURVEY HERE
-    </a>
-  </div>
-)}
+
 
           {/* Batch ID if traced */}
           {isTraced && (
