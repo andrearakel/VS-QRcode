@@ -42,6 +42,7 @@ const CERT_LOGOS = {
 
 export default function ProductLanding({ product, batch = null }) {
   const { topLayer, naeringarefni } = product;
+  console.log('batch:', batch);  // <-- add this
   const [activeCategory, setActiveCategory] = useState(null);
   const { trackLanding, trackCategoryOpen, trackDetailView } = useAnalytics(product.id);
 
@@ -223,8 +224,20 @@ export default function ProductLanding({ product, batch = null }) {
               <span>Batch: {batch.id}</span>
             </div>
           )}
-{/* Certifications + Days to Shelf */}
-<div className="mt-5 flex items-center justify-center gap-4">
+{/* Certifications + Company Logo + Days to Shelf */}
+<div className="mt-5 flex items-center justify-center gap-4 flex-wrap">
+  {/* Company Logo - batch traced */}
+  {isTraced && batch?.company_logo && (
+    <div className="flex items-center justify-center bg-white rounded-xl border border-gray-100 shadow-sm w-[90px] h-[90px] p-2">
+      <img
+        src={batch.company_logo}
+        alt={batch.company_name || 'Producer'}
+        className="h-14 w-auto object-contain"
+        onError={(e) => { e.target.parentElement.style.display = 'none'; }}
+      />
+    </div>
+  )}
+
   <CertificationBadges certifications={product.certifications} />
 
   {!product.theme && !isTraced && product.saga?.days_from_catch_to_shelf != null && (
