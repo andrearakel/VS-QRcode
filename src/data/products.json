@@ -277,6 +277,12 @@
     {
       "id": "prod-003",
       "name": "Haddock Loin Fresh",
+      "theme": {
+        "hero_image": "/images/products/haddock.png",
+        "gradient_from": "#1e3a5a",
+        "gradient_to": "#1e4060",
+        "accent": "#5b9bd5"
+      },  
       "format": "fresh",
       "cut": "loin",
       "species": {
